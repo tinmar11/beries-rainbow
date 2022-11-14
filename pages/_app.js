@@ -4,6 +4,8 @@ import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
   RainbowKitProvider,
+  lightTheme,
+  Theme,
 } from '@rainbow-me/rainbowkit';
 import {
   chain,
@@ -39,7 +41,14 @@ export default function MyApp({
 }) {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
+      <RainbowKitProvider modalSize="compact" chains={chains} 
+      theme={lightTheme({
+      accentColor: '#0000FF',
+      accentColorForeground: 'white',
+      borderRadius: 'medium',
+      fontStack: 'system',
+      overlayBlur: 'small',
+    })} > {}
       <Component {...pageProps} />
       </RainbowKitProvider>
     </WagmiConfig>

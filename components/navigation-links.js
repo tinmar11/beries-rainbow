@@ -48,34 +48,46 @@ const NavigationLinks = (props) => {
               data-thq="thq-dropdown"
               className="navigation-links-dropdown1 list-item"
             >
+              <Link href="/mint-pack-2">
+                <a>
               <div
                 data-thq="thq-dropdown-toggle"
                 className="navigation-links-dropdown-toggle2 dropdown"
               >
                 <span className="navigation-links-text2">Pack 2</span>
               </div>
+              </a>
+              </Link>
             </li>
             <li
               data-thq="thq-dropdown"
               className="navigation-links-dropdown2 list-item"
             >
+              <Link href="/mint-pack-3">
+                <a>
               <div
                 data-thq="thq-dropdown-toggle"
                 className="navigation-links-dropdown-toggle3 dropdown"
               >
                 <span className="navigation-links-text3">Pack 3</span>
               </div>
+              </a>
+              </Link>
             </li>
             <li
               data-thq="thq-dropdown"
               className="navigation-links-dropdown3 list-item"
             >
+              <Link href="/mint-pack-4">
+                <a>
               <div
                 data-thq="thq-dropdown-toggle"
                 className="navigation-links-dropdown-toggle4 dropdown"
               >
                 <span className="navigation-links-text4">Pack 4</span>
               </div>
+              </a>
+              </Link>
             </li>
           </ul>
         </div>

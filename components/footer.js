@@ -12,41 +12,67 @@ const Footer = (props) => {
               <span className="footer-text footer-title">
                 More about BeRies
               </span>
-              <span className="footer-text1 footer-text">
+              <a
+                href="mailto:contact@beries.xyz?subject="
+                className="footer-link footer-text"
+              >
                 Contact BeRies here
-              </span>
-              <span className="footer-text2 footer-text">Documentation</span>
-              <span className="footer-text3 footer-text">
+              </a>
+              <span className="footer-text1 footer-text">Documentation</span>
+              <span className="footer-text2 footer-text">
                 Partner Blueberry
               </span>
             </div>
             <div className="footer-container2">
-              <span className="footer-text4 footer-title">Newsletter</span>
+              <span className="footer-text3 footer-title">Newsletter</span>
               <input
                 type="text"
                 placeholder={props.textinput_placeholder}
-                className="input newsletter"
+                className="input newsletter footer-textinput"
               />
             </div>
             <div className="footer-container3">
               <div className="footer-icon-group">
-                <img
-                  alt={props.image_alt2}
-                  src={props.image_src2}
-                  className="footer-image"
-                />
-                <img
-                  alt={props.image_alt1}
-                  src={props.image_src1}
-                  className="footer-image1"
-                />
-                <img
-                  alt={props.image_alt}
-                  src={props.image_src}
-                  className="footer-image2"
-                />
+                <a
+                  href="https://www.instagram.com/beries.eth/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="footer-link1"
+                >
+                  <img
+                    alt={props.image_alt2}
+                    src={props.image_src2}
+                    className="footer-image"
+                  />
+                </a>
+                <a
+                  href="https://medium.com/@BeRies"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="footer-link2"
+                >
+                  <img
+                    alt={props.image_alt1}
+                    src={props.image_src1}
+                    className="footer-image1"
+                  />
+                </a>
+                <a
+                  href="https://twitter.com/0xBeRies"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="footer-link3"
+                >
+                  <img
+                    alt={props.image_alt}
+                    src={props.image_src}
+                    className="footer-image2"
+                  />
+                </a>
               </div>
-              <span className="footer-text">BeRies is Worlwide</span>
+              <span className="footer-text4 footer-text">
+                BeRies is Worlwide
+              </span>
             </div>
           </div>
         </footer>
@@ -88,6 +114,7 @@ const Footer = (props) => {
             justify-content: space-between;
           }
           .footer-container1 {
+            gap: var(--dl-space-space-unit);
             flex: 0 0 auto;
             height: auto;
             display: flex;
@@ -99,14 +126,15 @@ const Footer = (props) => {
           .footer-text {
             margin-bottom: var(--dl-space-space-twounits);
           }
+          .footer-link {
+            margin-bottom: 0px;
+            text-decoration: none;
+          }
           .footer-text1 {
-            margin-bottom: 10px;
+            margin-bottom: 0px;
           }
           .footer-text2 {
-            margin-bottom: 10px;
-          }
-          .footer-text3 {
-            margin-bottom: 10px;
+            margin-bottom: 0px;
           }
           .footer-container2 {
             flex: 0 0 auto;
@@ -115,10 +143,10 @@ const Footer = (props) => {
             align-self: stretch;
             align-items: stretch;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: space-between;
           }
-          .footer-text4 {
-            margin-bottom: 100px;
+          .footer-text3 {
+            margin-bottom: 0px;
           }
           .footer-container3 {
             flex: 0 0 auto;
@@ -135,48 +163,87 @@ const Footer = (props) => {
             flex-direction: row;
             justify-content: space-between;
           }
+          .footer-link1 {
+            display: contents;
+          }
           .footer-image {
             width: auto;
             height: 40px;
             object-fit: cover;
+            text-decoration: none;
+          }
+          .footer-link2 {
+            display: contents;
           }
           .footer-image1 {
             width: auto;
             height: 40px;
             object-fit: cover;
+            text-decoration: none;
+          }
+          .footer-link3 {
+            display: contents;
           }
           .footer-image2 {
             width: auto;
             height: 40px;
             object-fit: cover;
+            text-decoration: none;
+          }
+          .footer-text4 {
+            margin-bottom: 0px;
           }
 
           @media (max-width: 1200px) {
             .footer-links-container {
               justify-content: space-between;
             }
+            .footer-container1 {
+              gap: var(--dl-space-space-unit);
+              justify-content: flex-start;
+            }
+            .footer-link {
+              margin-bottom: 0px;
+            }
+            .footer-text1 {
+              margin-bottom: 0px;
+            }
+            .footer-text2 {
+              margin-bottom: 0px;
+            }
+            .footer-container2 {
+              justify-content: space-between;
+            }
+            .footer-container3 {
+              justify-content: space-between;
+            }
+            .footer-text4 {
+              margin-top: 0px;
+              margin-bottom: 0px;
+            }
           }
           @media (max-width: 991px) {
             .footer-container {
-              height: 331px;
+              height: auto;
               padding-left: 0px;
               padding-right: 0px;
               flex-direction: column;
             }
             .footer-footer {
-              height: 100%;
+              height: auto;
+              padding: var(--dl-space-space-threeunits);
               align-self: stretch;
               align-items: stretch;
-              padding-top: 0px;
-              padding-left: var(--dl-space-space-threeunits);
-              padding-right: var(--dl-space-space-threeunits);
+              padding-top: var(--dl-space-space-unit);
+              padding-left: var(--dl-space-space-unit);
+              padding-right: var(--dl-space-space-unit);
               flex-direction: row;
-              padding-bottom: var(--dl-space-space-halfunit);
+              padding-bottom: var(--dl-space-space-unit);
               justify-content: space-between;
             }
             .footer-links-container {
               width: 991px;
-              height: auto;
+              height: 200px;
               align-self: stretch;
               align-items: center;
               padding-left: 0px;
@@ -185,38 +252,96 @@ const Footer = (props) => {
               justify-content: space-between;
             }
             .footer-container1 {
+              gap: var(--dl-space-space-unit);
               width: auto;
-              height: 100%;
+              height: 200px;
+              align-self: flex-start;
               align-items: stretch;
               margin-left: 0x;
               flex-direction: column;
             }
+            .footer-link {
+              margin-bottom: 0px;
+            }
+            .footer-text1 {
+              margin-bottom: 0px;
+            }
+            .footer-text2 {
+              margin-bottom: 0px;
+            }
             .footer-container2 {
-              height: 100%;
+              height: 200px;
+              align-self: flex-start;
               align-items: stretch;
+              justify-content: space-between;
             }
             .footer-container3 {
-              align-items: stretch;
+              height: 200px;
+              align-self: stretch;
+              align-items: flex-end;
+              justify-content: space-between;
+            }
+            .footer-text4 {
+              align-self: stretch;
+              margin-bottom: 0px;
             }
           }
           @media (max-width: 767px) {
+            .footer-container {
+              height: auto;
+            }
             .footer-footer {
-              padding-left: var(--dl-space-space-twounits);
-              padding-right: var(--dl-space-space-twounits);
+              height: auto;
+              padding-top: var(--dl-space-space-unit);
+              padding-left: var(--dl-space-space-unit);
+              padding-right: var(--dl-space-space-unit);
+              flex-direction: column;
+              padding-bottom: var(--dl-space-space-unit);
               background-color: #ffffff;
             }
             .footer-links-container {
-              width: 720px;
+              gap: var(--dl-space-space-twounits);
+              width: 100%;
+              align-self: center;
               margin-top: 0px;
               align-items: center;
-              flex-direction: row;
-              justify-content: space-between;
+              flex-direction: column;
+              justify-content: flex-start;
             }
             .footer-container1 {
-              margin-right: var(--dl-space-space-unit);
+              gap: var(--dl-space-space-halfunit);
+              margin-left: 0px;
+            }
+            .footer-text {
+              margin-bottom: var(--dl-space-space-unit);
+            }
+            .footer-link {
+              margin-bottom: 0px;
+            }
+            .footer-text1 {
+              margin-bottom: 0x;
+            }
+            .footer-text2 {
+              margin-bottom: 0px;
             }
             .footer-container2 {
               margin-right: var(--dl-space-space-unit);
+            }
+            .footer-text3 {
+              margin-bottom: var(--dl-space-space-unit);
+            }
+            .footer-container3 {
+              gap: var(--dl-space-space-halfunit);
+              justify-content: flex-start;
+            }
+            .footer-icon-group {
+              gap: var(--dl-space-space-oneandhalfunits);
+              align-items: flex-start;
+              justify-content: center;
+            }
+            .footer-text4 {
+              align-self: center;
+              margin-bottom: 0px;
             }
           }
           @media (max-width: 479px) {
@@ -227,14 +352,25 @@ const Footer = (props) => {
               background-color: #ffffff;
             }
             .footer-links-container {
+              gap: var(--dl-space-space-twounits);
+              width: 100%;
               height: auto;
               align-self: stretch;
               align-items: stretch;
               flex-direction: column;
-              justify-content: space-between;
+              justify-content: flex-start;
             }
             .footer-container1 {
+              gap: var(--dl-space-space-halfunit);
               height: auto;
+              align-items: flex-start;
+              margin-right: 0px;
+            }
+            .footer-text {
+              margin-bottom: var(--dl-space-space-unit);
+            }
+            .footer-link {
+              margin-bottom: 0px;
             }
             .footer-text1 {
               margin-bottom: 0px;
@@ -242,33 +378,38 @@ const Footer = (props) => {
             .footer-text2 {
               margin-bottom: 0px;
             }
-            .footer-text3 {
-              margin-bottom: 0px;
-            }
             .footer-container2 {
               height: auto;
-              margin-top: var(--dl-space-space-twounits);
+              margin-top: 0px;
               align-items: flex-start;
               margin-right: 0px;
             }
-            .footer-text4 {
-              margin-bottom: var(--dl-space-space-oneandhalfunits);
+            .footer-text3 {
+              margin-bottom: var(--dl-space-space-unit);
+            }
+            .footer-textinput {
+              align-self: stretch;
             }
             .footer-container3 {
-              margin-top: var(--dl-space-space-oneandhalfunits);
-            }
-            .footer-icon-group {
-              gap: 30;
+              gap: var(--dl-space-space-unit);
+              align-self: center;
+              margin-top: 0px;
+              align-items: stretch;
+              flex-direction: column;
               justify-content: flex-start;
             }
+            .footer-icon-group {
+              gap: var(--dl-space-space-unit);
+              justify-content: center;
+            }
             .footer-image {
-              margin-right: 20px;
+              margin-right: 0px;
             }
             .footer-image1 {
-              margin-right: 20px;
+              margin-right: 0px;
             }
             .footer-image2 {
-              margin-right: 20px;
+              margin-right: 0px;
             }
           }
         `}
