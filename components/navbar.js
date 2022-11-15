@@ -3,6 +3,7 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import NavigationLinks from './navigation-links'
+import NavigationLinksMobile from './navigation-links-mobile';
 
 const Navbar = (props) => {
   return (
@@ -37,6 +38,7 @@ const Navbar = (props) => {
                   src="/assets/logo.svg"
                   className="navbar-image1"
                 />
+
                 <div
                   data-type="CloseMobileMenu"
                   className="navbar-close-mobile-menu"
@@ -46,7 +48,7 @@ const Navbar = (props) => {
                   </svg>
                 </div>
               </div>
-              <NavigationLinks rootClassName="rootClassName14"></NavigationLinks>
+              <NavigationLinksMobile rootClassName="NavigationLinksMobile"></NavigationLinksMobile>
             </nav>
           </div>
         </nav>
@@ -162,8 +164,11 @@ const Navbar = (props) => {
               padding-left: var(--dl-space-space-twounits);
               padding-right: var(--dl-space-space-twounits);
             }
+
+            .navbar-mobile-menu {
+              position: fixed;
+            }
             .navbar-btn-group {
-              display: none;
             }
             .navbar-burger-menu {
               display: flex;

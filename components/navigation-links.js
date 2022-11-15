@@ -292,6 +292,7 @@ const NavigationLinks = (props) => {
             .navigation-links-nav {
               align-items: flex-start;
               flex-direction: column;
+              display: none;
             }
             .navigation-links-link2 {
               margin-left: 0;
@@ -302,12 +303,14 @@ const NavigationLinks = (props) => {
             }
           }
           @media (max-width: 479px) {
+            .navigation-links-nav {
+              display: none;
+            }
             .navigation-links-dropdown-toggle {
               margin-bottom: var(--dl-space-space-unit);
             }
             .navigation-links-dropdown-list {
               left: 0%;
-              display: none;
             }
             .navigation-links-root-class-name12 {
               display: none;
