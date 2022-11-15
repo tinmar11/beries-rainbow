@@ -10,9 +10,9 @@ const KeyOwner = (props) => {
       <div className="key-owner-container">
         <Head>
           <title>Key-Owner - BeRies</title>
+          <meta property="og:title" content="Key-Owner - BeRies" />
           <meta
-            property="og:title"
-            content="Key-Owner - BeRies"
+
           />
         </Head>
         <Navbar rootClassName="navbar-root-class-name1"></Navbar>
@@ -55,27 +55,25 @@ const KeyOwner = (props) => {
             />
           </div>
           <div className="key-owner-container2">
-            <div className="key-owner-container3">
-              <h1 className="h3">Claim your NFT</h1>
-              <span className="paragraph2">
-                You can claim all NFT’s of all the packs, for free.
-              </span>
-              <span className="paragraph2">
-                *As a reminder, unique items will be added to your package, this
-                is part of the advantages of the key.
-              </span>
-              <select id="key-mint" name="key-mint" required className="select">
-                <option value="Option 1" selected>
-                  Option 1
-                </option>
-              </select>
-              <button className="key-owner-button mint-button button">
-                Mint for free
-              </button>
-              <span className="paragraph2">
-                Have you already mint it ? Claim your clothes here.
-              </span>
-            </div>
+            <h1 className="h3">Claim your NFT</h1>
+            <span className="paragraph2">
+              You can claim all NFT’s of all the packs, for free.
+            </span>
+            <span className="key-owner-text11 paragraph2">
+              *As a reminder, unique items will be added to your package, this
+              is part of the advantages of the key.
+            </span>
+            <select id="key-mint" name="key-mint" required className="select">
+              <option value="Option 1" selected>
+                Option 1
+              </option>
+            </select>
+            <button className="key-owner-button mint-button button">
+              Mint for free
+            </button>
+            <span className="paragraph2">
+              Have you already mint it ? Claim your clothes here.
+            </span>
           </div>
         </main>
         <Footer rootClassName="footer-root-class-name1"></Footer>
@@ -94,12 +92,12 @@ const KeyOwner = (props) => {
           .key-owner-title-section {
             flex: 0 0 auto;
             width: 100%;
-            height: 350px;
+            height: auto;
             display: flex;
-            margin-top: 20px;
+            margin-top: var(--dl-space-space-twounits);
             align-items: flex-start;
             padding-left: 140px;
-            margin-bottom: 20px;
+            margin-bottom: var(--dl-space-space-twounits);
             padding-right: 140px;
             flex-direction: column;
           }
@@ -111,55 +109,66 @@ const KeyOwner = (props) => {
           }
           .key-owner-claim-your-nft {
             flex: 0 0 auto;
-            width: 100%;
             height: auto;
             display: flex;
             align-self: stretch;
             align-items: flex-start;
+            padding-top: var(--dl-space-space-fourunits);
             padding-left: 140px;
             padding-right: 140px;
+            padding-bottom: var(--dl-space-space-fourunits);
             justify-content: space-between;
             background-color: #0000ff;
           }
           .key-owner-container1 {
             flex: 0 0 auto;
-            width: 50%;
+            width: auto;
             display: flex;
             align-self: center;
-            align-items: stretch;
+            align-items: center;
             flex-direction: column;
+            justify-content: center;
           }
           .key-owner-image {
-            width: 80%;
+            width: 70%;
+            height: auto;
             align-self: center;
             object-fit: cover;
           }
           .key-owner-container2 {
-            flex: 0 0 auto;
-            width: 50%;
-            display: flex;
-            align-self: center;
-            flex-direction: column;
-            justify-content: space-between;
-          }
-          .key-owner-container3 {
             gap: 10px;
             flex: 0 0 auto;
-            width: 80%;
-            height: 100%;
+            width: 40%;
+            height: auto;
             display: flex;
             align-self: center;
             align-items: flex-start;
             border-radius: 10px;
             flex-direction: column;
           }
+          .key-owner-text11 {
+            font-style: normal;
+            font-weight: 300;
+          }
           .key-owner-button {
             border-width: 0px;
           }
           @media (max-width: 1200px) {
             .key-owner-claim-your-nft {
+              width: 100%;
               padding-top: var(--dl-space-space-twounits);
               padding-bottom: var(--dl-space-space-twounits);
+              justify-content: space-between;
+            }
+            .key-owner-container1 {
+              width: 50%;
+            }
+            .key-owner-image {
+              width: 80%;
+              align-self: flex-start;
+            }
+            .key-owner-container2 {
+              width: 50%;
             }
           }
           @media (max-width: 991px) {
@@ -168,12 +177,24 @@ const KeyOwner = (props) => {
               padding-right: var(--dl-space-space-threeunits);
             }
             .key-owner-claim-your-nft {
-              padding-left: var(--dl-space-space-twounits);
-              padding-right: var(--dl-space-space-twounits);
+              padding-left: var(--dl-space-space-threeunits);
+              padding-right: var(--dl-space-space-threeunits);
+            }
+          }
+          @media (max-width: 767px) {
+            .key-owner-claim-your-nft {
+              gap: var(--dl-space-space-threeunits);
+              align-items: center;
+              flex-direction: column;
+              justify-content: center;
+            }
+            .key-owner-container2 {
+              width: 100%;
             }
           }
           @media (max-width: 479px) {
             .key-owner-title-section {
+              width: auto;
               height: auto;
               padding-left: var(--dl-space-space-oneandhalfunits);
               padding-right: var(--dl-space-space-oneandhalfunits);
@@ -183,14 +204,15 @@ const KeyOwner = (props) => {
               text-align: left;
             }
             .key-owner-claim-your-nft {
-              padding: var(--dl-space-space-oneandhalfunits);
+              width: auto;
+              padding: var(--dl-space-space-twounits);
               flex-direction: column;
             }
             .key-owner-container1 {
               width: auto;
             }
-            .key-owner-container2 {
-              width: auto;
+            .key-owner-image {
+              align-self: center;
             }
           }
         `}
