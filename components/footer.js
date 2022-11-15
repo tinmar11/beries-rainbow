@@ -106,7 +106,7 @@ const Footer = (props) => {
           }
           .footer-links-container {
             width: 100%;
-            height: 189px;
+            height: auto;
             display: flex;
             align-self: center;
             align-items: center;
@@ -197,6 +197,10 @@ const Footer = (props) => {
           @media (max-width: 1200px) {
             .footer-links-container {
               justify-content: space-between;
+              height: auto;
+              width: 100%:
+
+
             }
             .footer-container1 {
               gap: var(--dl-space-space-unit);
@@ -242,8 +246,8 @@ const Footer = (props) => {
               justify-content: space-between;
             }
             .footer-links-container {
-              width: 991px;
-              height: 200px;
+              width: 100%;
+              height: auto;
               align-self: stretch;
               align-items: center;
               padding-left: 0px;
@@ -302,6 +306,7 @@ const Footer = (props) => {
             .footer-links-container {
               gap: var(--dl-space-space-twounits);
               width: 100%;
+              height: auto;
               align-self: center;
               margin-top: 0px;
               align-items: center;

@@ -39,7 +39,7 @@ const Home = (props) => {
 </div>
 
 <div className={styles.wrapper} style={{transform:`translateX(${-100*index}vw)` }}>
-    <div className={styles.pack1Container}>
+    <div className={styles.pack2Container}>
 
     </div>
     <div className={styles.pack2Container}>

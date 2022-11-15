@@ -1,0 +1,9 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/mint-pack-3": "pages/mint-pack-3.js",
+  "/mint-pack-4": "pages/mint-pack-4.js",
+  "/key-owner": "pages/key-owner.js",
+  "/mint-pack-1": "pages/mint-pack-1.js"
+}

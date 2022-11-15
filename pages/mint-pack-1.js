@@ -1,8 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
-
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+
+
 
 const MintPack1 = (props) => {
   return (
@@ -10,12 +11,13 @@ const MintPack1 = (props) => {
       <div className="mint-pack1-container">
         <Head>
           <title>Mint-pack-1 - BeRies</title>
+          <meta property="og:title" content="Mint-pack-1 - BeRies" />
           <meta
-            property="og:title"
-            content="Mint-pack-1 - BeRies"
+            property="og:image"
           />
         </Head>
-        <Navbar rootClassName="navbar-root-class-name3"></Navbar>
+        <Navbar rootClassName="navbar-root-class-name"></Navbar>
+
         <main id="mint pack 1 container" className="mint-pack1-container1">
           <div className="mint-pack1-container2">
             <img
@@ -25,22 +27,20 @@ const MintPack1 = (props) => {
             />
           </div>
           <div className="mint-pack1-container3">
-            <div className="mint-pack1-container4">
-              <span className="h3">Pack 1</span>
-              <span className="mint-pack1-text1 paragraph">
-                1 Tee - 1 Hoodie - 1 Cap
-              </span>
-              <button
-                id="mint pack 1 button"
-                type="button"
-                className="mint-pack1-mint-pack-1-button mint-button button"
-              >
-                Mint for 0.1 ETH
-              </button>
-              <a href="#item-of-this-pack" className="mint-pack1-link">
-                See clothes here
-              </a>
-            </div>
+            <span className="h3">Pack 1</span>
+            <span className="mint-pack1-text1 paragraph">
+              1 Tee - 1 Hoodie - 1 Cap
+            </span>
+            <button
+              id="mint pack 1 button"
+              type="button"
+              className="mint-pack1-mint-pack-1-button mint-button button"
+            >
+              Mint for 0.1 ETH
+            </button>
+            <a href="#item-of-this-pack" className="mint-pack1-link">
+              See clothes here
+            </a>
           </div>
         </main>
         <section
@@ -48,41 +48,42 @@ const MintPack1 = (props) => {
           className="mint-pack1-item-of-this-pack"
         >
           <h1 className="mint-pack1-text2 H1">Item of this pack</h1>
-          <div className="mint-pack1-container5">
-            <div className="mint-pack1-container6">
+          <div className="mint-pack1-container4">
+            <div className="mint-pack1-container5">
               <img
                 alt="image"
-                src="/assets/tee%20burn-300h.png"
+                src="/assets/tee burn-600w.png"
                 className="mint-pack1-image1"
               />
               <span className="mint-pack1-text3">Item title</span>
             </div>
-            <div className="mint-pack1-container7">
+            <div className="mint-pack1-container6">
               <img
                 alt="image"
-                src="/assets/tee%20burn-300h.png"
+                src="/assets/tee burn-600w.png"
                 className="mint-pack1-image2"
               />
               <span className="mint-pack1-text4">Item title</span>
             </div>
-            <div className="mint-pack1-container8">
+            <div className="mint-pack1-container7">
               <img
                 alt="image"
-                src="/assets/tee%20burn-300h.png"
+                src="/assets/tee burn-600w.png"
                 className="mint-pack1-image3"
               />
               <span className="mint-pack1-text5">Item title</span>
             </div>
           </div>
         </section>
-        <Footer rootClassName="footer-root-class-name3"></Footer>
       </div>
+      <Footer rootClassName="footer-root-class-name"></Footer>
+
       <style jsx>
         {`
           .mint-pack1-container {
             width: 100%;
             display: flex;
-            overflow: auto;
+            overflow: hidden;
             min-height: 100vh;
             align-items: flex-start;
             flex-direction: column;
@@ -90,11 +91,13 @@ const MintPack1 = (props) => {
             background-color: #0000ff;
           }
           .mint-pack1-container1 {
+            gap: var(--dl-space-space-twounits);
             flex: 0 0 auto;
             width: 100%;
-            height: 100vh;
+            height: auto;
             display: flex;
             align-items: center;
+            padding-top: var(--dl-space-space-threeunits);
             padding-left: 140px;
             padding-right: 140px;
           }
@@ -104,28 +107,21 @@ const MintPack1 = (props) => {
             height: 100%;
             display: flex;
             align-self: center;
-            align-items: flex-start;
+            align-items: flex-end;
             flex-direction: column;
             justify-content: center;
           }
           .mint-pack1-image {
-            width: auto;
-            height: 50%;
+            width: 100%;
+            height: auto;
             align-self: center;
             object-fit: cover;
           }
           .mint-pack1-container3 {
-            flex: 0 0 auto;
-            width: 50%;
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-          }
-          .mint-pack1-container4 {
             gap: 10px;
             flex: 0 0 auto;
-            width: 70%;
-            height: 80%;
+            width: 40%;
+            height: auto;
             display: flex;
             align-self: center;
             align-items: flex-start;
@@ -147,7 +143,7 @@ const MintPack1 = (props) => {
           }
           .mint-pack1-item-of-this-pack {
             width: 100%;
-            height: 385px;
+            height: auto;
             display: flex;
             align-self: stretch;
             margin-top: 40px;
@@ -163,22 +159,26 @@ const MintPack1 = (props) => {
             font-size: 48px;
             margin-bottom: 40px;
           }
-          .mint-pack1-container5 {
+          .mint-pack1-container4 {
+            gap: var(--dl-space-space-threeunits);
             flex: 0 0 auto;
             width: 100%;
+            height: 100%;
             display: flex;
+            align-self: stretch;
             align-items: flex-start;
+            justify-content: center;
           }
-          .mint-pack1-container6 {
-            flex: 0 0 auto;
-            width: 33%;
-            height: 262px;
+          .mint-pack1-container5 {
+            flex: 1;
+            width: auto;
+            height: auto;
             display: flex;
             align-items: center;
             flex-direction: column;
           }
           .mint-pack1-image1 {
-            width: 250px;
+            width: 100%;
             align-self: center;
             object-fit: cover;
             margin-bottom: 20px;
@@ -187,16 +187,16 @@ const MintPack1 = (props) => {
             color: rgb(255, 255, 255);
             font-size: 20px;
           }
-          .mint-pack1-container7 {
-            flex: 0 0 auto;
-            width: 33%;
-            height: 262px;
+          .mint-pack1-container6 {
+            flex: 1;
+            width: auto;
+            height: auto;
             display: flex;
             align-items: center;
             flex-direction: column;
           }
           .mint-pack1-image2 {
-            width: 250px;
+            width: 100%;
             align-self: center;
             object-fit: cover;
             margin-bottom: 20px;
@@ -205,16 +205,16 @@ const MintPack1 = (props) => {
             color: rgb(255, 255, 255);
             font-size: 20px;
           }
-          .mint-pack1-container8 {
-            flex: 0 0 auto;
-            width: 33%;
-            height: 262px;
+          .mint-pack1-container7 {
+            flex: 1;
+            width: auto;
+            height: auto;
             display: flex;
             align-items: center;
             flex-direction: column;
           }
           .mint-pack1-image3 {
-            width: 250px;
+            width: 100%;
             align-self: center;
             object-fit: cover;
             margin-bottom: 20px;
@@ -224,29 +224,91 @@ const MintPack1 = (props) => {
             font-size: 20px;
           }
           @media (max-width: 1200px) {
+            .mint-pack1-container1 {
+              gap: var(--dl-space-space-threeunits);
+              justify-content: center;
+            }
             .mint-pack1-container2 {
+              width: 50%;
+              height: 100%;
               justify-content: center;
             }
             .mint-pack1-image {
-              height: 50%;
+              width: 100%;
+              height: auto;
               align-self: center;
             }
             .mint-pack1-container3 {
+              width: 40%;
               align-self: center;
-              align-items: flex-end;
+              align-items: flex-start;
+              justify-content: center;
+            }
+            .mint-pack1-item-of-this-pack {
+              height: auto;
             }
             .mint-pack1-container4 {
-              align-self: flex-end;
-              align-items: flex-start;
+              gap: var(--dl-space-space-threeunits);
+              justify-content: center;
             }
           }
           @media (max-width: 991px) {
+            .mint-pack1-container1 {
+              padding-left: var(--dl-space-space-threeunits);
+              padding-right: var(--dl-space-space-threeunits);
+              flex-direction: column;
+            }
+            .mint-pack1-container2 {
+              width: 100%;
+              height: auto;
+            }
             .mint-pack1-image {
-              height: 40%;
+              width: 70%;
+              height: auto;
+            }
+            .mint-pack1-container3 {
+              width: 70%;
             }
             .mint-pack1-item-of-this-pack {
-              padding-left: var(--dl-space-space-twounits);
-              padding-right: var(--dl-space-space-twounits);
+              padding-left: var(--dl-space-space-threeunits);
+              padding-right: var(--dl-space-space-threeunits);
+            }
+            .mint-pack1-container4 {
+              align-items: center;
+              flex-direction: column;
+            }
+            .mint-pack1-container5 {
+              width: 100%;
+              height: auto;
+            }
+            .mint-pack1-image1 {
+              width: 70%;
+              height: auto;
+            }
+            .mint-pack1-text3 {
+              font-size: 30px;
+            }
+            .mint-pack1-container6 {
+              width: 100%;
+              height: auto;
+            }
+            .mint-pack1-image2 {
+              width: 70%;
+              height: auto;
+            }
+            .mint-pack1-text4 {
+              font-size: 30px;
+            }
+            .mint-pack1-container7 {
+              width: 100%;
+              height: auto;
+            }
+            .mint-pack1-image3 {
+              width: 70%;
+              height: auto;
+            }
+            .mint-pack1-text5 {
+              font-size: 30px;
             }
           }
           @media (max-width: 767px) {
@@ -261,53 +323,49 @@ const MintPack1 = (props) => {
               height: 50%;
             }
             .mint-pack1-image {
-              height: 100%;
+              height: auto;
               padding-top: var(--dl-space-space-threeunits);
             }
             .mint-pack1-container3 {
-              width: 80%;
-              height: auto;
-              padding-top: 100px;
-            }
-            .mint-pack1-container4 {
               gap: 20;
               width: 100%;
               align-self: center;
             }
             .mint-pack1-item-of-this-pack {
-              padding-left: var(--dl-space-space-threeunits);
-              padding-right: var(--dl-space-space-threeunits);
+              gap: 0;
+              padding-left: var(--dl-space-space-twounits);
+              padding-right: var(--dl-space-space-twounits);
               flex-direction: column;
             }
-            .mint-pack1-container5 {
-              gap: 30px;
+            .mint-pack1-container4 {
+              gap: var(--dl-space-space-twounits);
               width: auto;
               height: auto;
               align-self: stretch;
               align-items: center;
-              flex-direction: row;
+              flex-direction: column;
               justify-content: center;
+            }
+            .mint-pack1-container5 {
+              width: auto;
+              height: auto;
+            }
+            .mint-pack1-image1 {
+              width: 70%;
             }
             .mint-pack1-container6 {
               width: auto;
               height: auto;
             }
-            .mint-pack1-image1 {
-              width: 200px;
+            .mint-pack1-image2 {
+              width: 70%;
             }
             .mint-pack1-container7 {
               width: auto;
               height: auto;
             }
-            .mint-pack1-image2 {
-              width: 200px;
-            }
-            .mint-pack1-container8 {
-              width: auto;
-              height: auto;
-            }
             .mint-pack1-image3 {
-              width: 200px;
+              width: 70%;
             }
           }
           @media (max-width: 479px) {
@@ -318,9 +376,6 @@ const MintPack1 = (props) => {
               width: 100%;
             }
             .mint-pack1-container3 {
-              width: 100%;
-            }
-            .mint-pack1-container4 {
               gap: 20px;
               width: 100%;
               height: auto;
@@ -334,18 +389,18 @@ const MintPack1 = (props) => {
               font-size: 40px;
               text-align: left;
             }
-            .mint-pack1-container5 {
+            .mint-pack1-container4 {
               gap: 40;
               flex-direction: column;
             }
             .mint-pack1-image1 {
-              width: auto;
+              width: 100%;
             }
             .mint-pack1-image2 {
-              width: auto;
+              width: 100%;
             }
             .mint-pack1-image3 {
-              width: auto;
+              width: 100%;
             }
           }
         `}
