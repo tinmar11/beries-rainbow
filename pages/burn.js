@@ -14,34 +14,31 @@ const Burn = (props) => {
         </Head>
         <Navbar rootClassName="navbar-root-class-name4"></Navbar>
         <section id="Title" className="burn-container1">
-          <h1 className="H1 burn-text">Burn for shipping</h1>
-          <span className="paragraph">
-            Burn your NFT to receive the BeRies pack you choose.
+        <h1 className="H1 burn-text">Burn for shipping</h1>
+        <span className="paragraph">
+          Burn your NFT to receive the BeRies pack you choose.
+        </span>
+      </section>
+      <main id="burn for shipping" className="burn-container2">
+        <div className="burn-image-container">
+          <img
+            src="/assets/tee burn-600w.png"
+            className="burn-image"
+          />
+        </div>
+        <div className="burn-container3">
+          <h1 className="h3">Choose wich NFT to burn</h1>
+          <select className="select">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+            <option value="Option 3">Option 3</option>
+          </select>
+          <button className="burn-button mint-button button">Button</button>
+          <span className="paragraph2">
+            Have you already burned it ? Claim your cloths here.
           </span>
-        </section>
-        <main id="burn for shipping" className="burn-container2">
-          <div className="burn-image-container">
-            <img
-              alt="image"
-              src="/assets/tee%20burn-600w.png"
-              className="burn-image"
-            />
-          </div>
-          <div className="burn-burn-form-container">
-            <div className="burn-container3">
-              <h1 className="h3">Choose wich NFT to burn</h1>
-              <select className="select">
-                <option value="Option 1">Option 1</option>
-                <option value="Option 2">Option 2</option>
-                <option value="Option 3">Option 3</option>
-              </select>
-              <button className="burn-button mint-button button">Button</button>
-              <span className="paragraph2">
-                Have you already burned it ? Claim your cloths here.
-              </span>
-            </div>
-          </div>
-        </main>
+        </div>
+      </main>
         <Footer rootClassName="footer-root-class-name4"></Footer>
       </div>
       <style jsx>
@@ -60,10 +57,10 @@ const Burn = (props) => {
             width: 100%;
             height: 100px;
             display: flex;
-            margin-top: 40px;
+            margin-top: var(--dl-space-space-twounits);
             align-items: flex-start;
             padding-left: 140px;
-            margin-bottom: 40px;
+            margin-bottom: var(--dl-space-space-twounits);
             padding-right: 140px;
             flex-direction: column;
             justify-content: center;
@@ -80,7 +77,7 @@ const Burn = (props) => {
             padding-right: 140px;
             padding-bottom: var(--dl-space-space-twounits);
             justify-content: space-between;
-            background-color: #0000ff;
+            background-color: #0000FF;
           }
           .burn-image-container {
             flex: 0 0 auto;
@@ -97,27 +94,20 @@ const Burn = (props) => {
             align-self: center;
             object-fit: cover;
           }
-          .burn-burn-form-container {
-            flex: 0 0 auto;
-            width: 50%;
-            display: flex;
-            align-self: center;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-          }
           .burn-container3 {
             gap: 10px;
-            width: 420px;
-            height: 229px;
+            width: 100%;
+            height: auto;
             display: flex;
             align-items: flex-start;
+            margin-left: var(--dl-space-space-fiveunits);
+            margin-right: var(--dl-space-space-fiveunits);
             flex-direction: column;
           }
           .burn-button {
             border-width: 0px;
           }
-          @media (max-width: 1200px) {
+          @media(max-width: 1200px) {
             .burn-container2 {
               height: auto;
               padding-top: var(--dl-space-space-twounits);
@@ -127,38 +117,50 @@ const Burn = (props) => {
             .burn-image {
               align-self: center;
             }
-            .burn-burn-form-container {
-              width: auto;
-              align-self: center;
-              align-items: center;
-              justify-content: center;
-            }
             .burn-container3 {
               align-items: center;
+              margin-left: var(--dl-space-space-unit);
+              margin-right: var(--dl-space-space-unit);
               justify-content: center;
             }
           }
-          @media (max-width: 991px) {
+          @media(max-width: 991px) {
+            .burn-container1 {
+              padding-left: var(--dl-space-space-threeunits);
+              padding-right: var(--dl-space-space-threeunits);
+            }
             .burn-container2 {
               height: auto;
+              padding: var(--dl-space-space-twounits);
               padding-top: var(--dl-space-space-threeunits);
+              padding-left: var(--dl-space-space-threeunits);
+              padding-right: var(--dl-space-space-threeunits);
               padding-bottom: var(--dl-space-space-threeunits);
             }
             .burn-image {
               align-self: center;
             }
           }
-          @media (max-width: 767px) {
+          @media(max-width: 767px) {
+            .burn-container {
+              gap: 0;
+              align-items: center;
+              flex-direction: column;
+            }
             .burn-container1 {
               padding-left: var(--dl-space-space-twounits);
               padding-right: var(--dl-space-space-twounits);
             }
             .burn-container2 {
+              gap: var(--dl-space-space-threeunits);
               height: auto;
+              align-items: center;
               padding-top: var(--dl-space-space-twounits);
               padding-left: var(--dl-space-space-twounits);
               padding-right: var(--dl-space-space-twounits);
+              flex-direction: column;
               padding-bottom: var(--dl-space-space-twounits);
+              justify-content: flex-start;
             }
             .burn-image-container {
               width: 300px;
@@ -168,12 +170,13 @@ const Burn = (props) => {
             .burn-image {
               align-self: center;
             }
-            .burn-burn-form-container {
-              height: auto;
-              align-self: stretch;
+            .burn-container3 {
+              align-items: flex-start;
+              padding-left: 0px;
+              padding-right: 0px;
             }
           }
-          @media (max-width: 479px) {
+          @media(max-width: 479px) {
             .burn-container1 {
               padding-left: var(--dl-space-space-twounits);
               padding-right: var(--dl-space-space-twounits);
@@ -188,10 +191,22 @@ const Burn = (props) => {
               flex-direction: column;
               padding-bottom: var(--dl-space-space-threeunits);
             }
+            .burn-image-container {
+              width: auto;
+            }
             .burn-image {
+              width: 50%;
               margin-bottom: var(--dl-space-space-oneandhalfunits);
             }
+            .burn-container3 {
+              margin-left: 0px;
+              margin-right: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+            }
           }
+          
+          
         `}
       </style>
     </>
