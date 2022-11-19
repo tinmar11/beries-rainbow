@@ -7,9 +7,9 @@ import Image from 'next/image';
 import { useState } from "react";
 import MeetOurTeam from '../components/meet-our-team';
 import HowItWorks from '../components/how-it-works';
-import { Slider } from '@mui/material';
 import Community from '../components/community';
 import Preloader from '../components/preloader';
+
 
 const Home = (props) => {
 
@@ -32,7 +32,7 @@ const Home = (props) => {
           <meta property="og:title" content="BeRies" />
         </Head>
         <Navbar rootClassName="navbar-root-class-name"></Navbar>
-        <Preloader rootClassName="preloader"></Preloader>
+        
         <main id="slider" className="home-slider">
 <div className={styles.leftArrowContainer} style={{left:0}} onClick={() => handleArrow("left")}>
     
