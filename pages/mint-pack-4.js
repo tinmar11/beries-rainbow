@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
-import { mintFunction } from './mintFunction.js'
+import { mintFunction } from '../functions/mintFunction.js'
 
 const MintPack4 = (props) => {
 
