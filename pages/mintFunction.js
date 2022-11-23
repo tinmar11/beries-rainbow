@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 import {
     BERIES_CONTRACT_ABI,
     BERIES_CONTRACT_ADDRESS,
-  } from "./index";
+  } from "../constants/index";
   import { utils } from "ethers";
 export const mintFunction = async (tokenId, amount) => {
     try { 
