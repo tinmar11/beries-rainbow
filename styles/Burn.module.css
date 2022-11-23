@@ -1,3 +1,5 @@
+
+
  .burnText{
     color: white;
     font-size: 48px;
@@ -12,7 +14,6 @@
     flex-direction: column;
     justify-content: flex-start;
     color: white;
-    
   }
   .burnContainer1 {
     background-color: #0000FF;
@@ -27,12 +28,86 @@
     flex-direction: column;
     justify-content: center;
   }
- .test {
+  .div{
     width: 100%;
-    height: 500px;
-    background-color: antiquewhite;
+
+  }
+ .blueContainer {
+    width: 100%;
+    height: 550px;
+    background-color: #0000FF;
+    display: flex;
+    padding-left: 100px;
+    padding-right: 100px;
  }
-  .burnContainer2 {
+ .blueContainerRight{
+  width: 50%;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+ }
+ .blueContainerLeft{
+    width: 50%;
+    height: 550px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+  
+ .burnInputContainer{
+  margin-top: 20px;
+    padding: 0 20px;
+    background-color: white;
+    border-radius: 8px;
+    width: 280px;
+    height: 50px;
+    color: #0000FF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+ }
+
+ .burnInputContainer *:focus  {
+  outline: none;
+ }
+ .burnButton{
+  background-color: white;
+  color: rgb(0, 0, 255);
+  font-size: 25px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: center;
+  font-weight: 700;
+  padding-top: 10px;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  width: 70%;
+  max-width: 380px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-self: center;
+ }
+ .burnInput  {
+    color: #0000FF;
+    width: 30PX;
+    font-size: 16PX;
+    text-align: right;
+ }
+
+ .pleaseConnect{
+  font-size: 48px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 900;
+ }
+  .form {
     flex: 0 0 auto;
     width: 100%;
     padding-top: 25px;

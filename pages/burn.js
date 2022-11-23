@@ -3,10 +3,17 @@ import Head from 'next/head'
 import styles from '../styles/Burn.module.css';
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+import { useState } from 'react'
+import { useEffect } from 'react';
 import { useAccount } from 'wagmi';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { collection, doc, addDoc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
+import {
+  BERIES_CONTRACT_ABI,
+  BERIES_CONTRACT_ADDRESS,
+} from "../constants";
+import { ethers } from "ethers";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDbeEo8D_EAnkLqdhz9FVbWxCYqMzUMnNI",
@@ -23,12 +30,34 @@ const db = getFirestore(app);
 
 const Burn = () => {
   
+  const [userBalance, setUserBalance] = useState(["X", "X" , "X", "X"]);
   const { address, isConnected } = useAccount();
+  
+  const getUserBalance = async () => {
+    try { 
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+    const contract = new ethers.Contract(
+      BERIES_CONTRACT_ADDRESS,
+      BERIES_CONTRACT_ABI,
+      signer
+      );
+      const balance = []
+       balance[0] = await contract.balanceOf(address, 0);
+       balance[1] = await contract.balanceOf(address, 1);
+       balance[2] = await contract.balanceOf(address, 2);
+       balance[3] = await contract.balanceOf(address, 3);
+      await setUserBalance(balance);
+      console.log(userBalance);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
     try {
-
+      
       await setDoc(doc(db, "orders", address), {
         address: address,
         name: state.name,
@@ -41,7 +70,7 @@ const Burn = () => {
         info: state.info,
       });
       console.log("Document written with ID: ", address);
-
+      
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -56,7 +85,7 @@ const Burn = () => {
     city: "",
     info: "",
   }
-
+  
   function reducer(state, action){
     switch (action.type) {
       case "update_input":
@@ -64,12 +93,17 @@ const Burn = () => {
           ...state,
           [action.key]: action.value
         }
+      }
+      
     }
-
-  }
     const [state, dispatch] = React.useReducer(reducer, initialState);
-  return (
-    <>
+    
+    useEffect (() => {
+      getUserBalance();
+    }, [isConnected]);
+    
+    return (
+      <>
     <div className={styles.burnContainer}>
         <Head>
           <title>Burn - BeRies</title>
@@ -83,13 +117,55 @@ const Burn = () => {
           </span>
         </section>
 
-        <div className={styles.test}>
-          
-        </div>
+        
         {isConnected ? (
-          
-            
-      <form id="burn for shipping" onSubmit={handleSubmit} className={styles.burnContainer2}>
+        <div className={styles.div}>
+          <div className={styles.blueContainer}>
+            <div className={styles.blueContainerRight}>
+
+              <div className={styles.burnInputContainer}>
+                Pack 1 :
+                <div>
+                <input className={styles.burnInput} placeholder='....'>
+                </input>
+                /X
+                </div>    
+              </div>
+              <div className={styles.burnInputContainer}>
+                Pack 2 :
+                <div>
+                <input className={styles.burnInput} placeholder='....'>
+
+                </input>
+                /X
+                </div>    
+              </div>
+              <div className={styles.burnInputContainer}>
+                Pack 3 :
+                <div>
+                <input className={styles.burnInput} placeholder='....'>
+
+                </input>
+                /X
+                </div>    
+              </div>
+              <div className={styles.burnInputContainer}>
+                Pack 4 :
+                <div>
+                <input className={styles.burnInput} placeholder='....'>
+
+                </input>
+                /X
+                </div>    
+              </div>
+            </div>
+            <div className={styles.blueContainerLeft}>
+              <h1>Choose wich NFTs to burn</h1>
+              <button className={styles.burnButton}>Burn</button>
+              <p>If you already did, form is down below</p>
+            </div>
+          </div>      
+      <form id="burn for shipping" onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.burnImageContainer}>
 
         <div className={styles.row}>
@@ -176,7 +252,6 @@ const Burn = () => {
               })}></input>
           </div>
         </div>
-        </div>
         <div className={styles.row}>
           <div className={styles.inputContainer}>
             <h1 className={styles.inputTitle}>City</h1>
@@ -202,14 +277,19 @@ const Burn = () => {
                 value: e.target.value
               })}></input>
           </div>
+              </div>
           </div>
           <button type='submit'>Submit</button>
       </form>
-        
+      </div>   
         ) : (
-          <h1 className='H1'>
+          <div className={styles.blueContainer}>
+          
+          <h1 className={styles.pleaseConnect}>
             Please connect your wallet to continue.
           </h1>
+        </div>
+       
                 ) 
               }
         <Footer rootClassName="footer-root-class-name4"></Footer>

@@ -180,9 +180,9 @@
   font-style: normal;
   text-align: center;
   font-weight: 700;
-  padding-top: 20px;
+  padding-top: 10px;
   border-radius: 10px;
-  padding-bottom: 20px;
+  padding-bottom:10px;
 }
 .team-pic {
   width: auto;

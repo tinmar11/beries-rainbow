@@ -2,8 +2,8 @@ import React from 'react'
 import Head from 'next/head'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
-
-
+import { ethers } from 'ethers'
+import { BigNumber, Contract, providers, utils } from "ethers";
 
 const MintPack1 = (props) => {
   return (

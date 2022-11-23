@@ -63,11 +63,7 @@ const KeyOwner = (props) => {
               *As a reminder, unique items will be added to your package, this
               is part of the advantages of the key.
             </span>
-            <select id="key-mint" name="key-mint" required className="select">
-              <option value="Option 1" selected>
-                Option 1
-              </option>
-            </select>
+            
             <button className="key-owner-button mint-button button">
               Mint for free
             </button>
