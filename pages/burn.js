@@ -44,11 +44,14 @@ const Burn = () => {
       );
       const balance = []
        balance[0] = await contract.balanceOf(address, 0);
+       balance[0] = ethers.utils.formatUnits(balance[0], 0);
        balance[1] = await contract.balanceOf(address, 1);
+       balance[1] = ethers.utils.formatUnits(balance[1], 0);
        balance[2] = await contract.balanceOf(address, 2);
+       balance[2] = ethers.utils.formatUnits(balance[2], 0);
        balance[3] = await contract.balanceOf(address, 3);
+       balance[3] = ethers.utils.formatUnits(balance[3], 0);
       await setUserBalance(balance);
-      console.log(userBalance);
     } catch (error) {
       console.log(error);
     }
@@ -128,7 +131,7 @@ const Burn = () => {
                 <div>
                 <input className={styles.burnInput} placeholder='....'>
                 </input>
-                /X
+                /{userBalance[0]}
                 </div>    
               </div>
               <div className={styles.burnInputContainer}>
@@ -137,7 +140,7 @@ const Burn = () => {
                 <input className={styles.burnInput} placeholder='....'>
 
                 </input>
-                /X
+                /{userBalance[1]}
                 </div>    
               </div>
               <div className={styles.burnInputContainer}>
@@ -146,7 +149,7 @@ const Burn = () => {
                 <input className={styles.burnInput} placeholder='....'>
 
                 </input>
-                /X
+                /{userBalance[2]}
                 </div>    
               </div>
               <div className={styles.burnInputContainer}>
@@ -155,7 +158,7 @@ const Burn = () => {
                 <input className={styles.burnInput} placeholder='....'>
 
                 </input>
-                /X
+                /{userBalance[3]}
                 </div>    
               </div>
             </div>

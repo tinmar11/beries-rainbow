@@ -2,10 +2,13 @@ import React from 'react'
 import Head from 'next/head'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
-import { ethers } from 'ethers'
-import { BigNumber, Contract, providers, utils } from "ethers";
+import { mintFunction } from '../constants/mintFunction.JS'
 
 const MintPack1 = (props) => {
+
+  const handleClick = () => {
+    mintFunction(0, 1);
+  };
   return (
     <>
       <div className="mint-pack1-container">
@@ -35,6 +38,7 @@ const MintPack1 = (props) => {
               id="mint pack 1 button"
               type="button"
               className="mint-pack1-mint-pack-1-button mint-button button"
+              onClick={handleClick}
             >
               Mint for 0.1 ETH
             </button>
