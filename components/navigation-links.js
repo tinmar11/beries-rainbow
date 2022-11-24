@@ -170,6 +170,12 @@ const NavigationLinks = (props) => {
             text-decoration: none;
           }
 
+          .navigation-links-dropdown-toggle1:hover {
+            fill: #fff;
+            color: #ffffff;
+            background-color: #0000ff;
+          }
+
           .navigation-links-text1 {
             width: 100%;
             cursor: pointer;
