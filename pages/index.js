@@ -40,17 +40,67 @@ const Home = (props) => {
 </div>
 
 <div className={styles.wrapper} style={{transform:`translateX(${-100*index}vw)` }}>
-    <div className={styles.pack2Container}>
+    <div className={styles.pack1Container}>
+      <div className={styles.leftColumn}>
+        <img src='/assets/nft-boite-pack-1-1500h.webp' className={styles.packImage}></img>
+      </div>
 
+      <div className={styles.rightColumn}>
+        <div className={styles.rightContainer}>
+          <h1 className={styles.h1Slide}>Mint your pack</h1>
+          <p className={styles.pSlide}>If you want BeRies clothes</p>
+          <a href='/mint-pack-1'>
+          <button className={styles.buttonSlide1}>Choose...</button>
+          </a>
+        </div>
+      </div>
     </div>
-    <div className={styles.pack2Container}>
 
+    <div className={styles.pack2Container}>
+    <div className={styles.leftColumn}>
+        <img src='/assets/nft-boite-pack-2-1500h.webp' className={styles.packImage}></img>
+      </div>
+
+      <div className={styles.rightColumn}>
+        <div className={styles.rightContainer}>
+          <h1 className={styles.h1Slide}>Mint your pack</h1>
+          <p className={styles.pSlide}>If you want BeRies clothes</p>
+          <a href='/mint-pack-2'>
+          <button className={styles.buttonSlide2}>Choose...</button>
+          </a>
+        </div>
+      </div>
     </div>
+
     <div className={styles.pack3Container}>
+    <div className={styles.leftColumn}>
+        <img src='/assets/nft-boite-pack-3-1500h.webp' className={styles.packImage}></img>
+      </div>
 
+      <div className={styles.rightColumn}>
+        <div className={styles.rightContainer}>
+          <h1 className={styles.h1Slide}>Mint your pack</h1>
+          <p className={styles.pSlide}>If you want BeRies clothes</p>
+          <a href='/mint-pack-3'>
+          <button className={styles.buttonSlide3}>Choose...</button>
+          </a>
+        </div>
+      </div>
     </div>
     <div className={styles.pack4Container}>
-      
+    <div className={styles.leftColumn}>
+        <img src='/assets/nft-boite-pack-4-1500h.webp' className={styles.packImage}></img>
+      </div>
+
+      <div className={styles.rightColumn}>
+        <div className={styles.rightContainer}>
+          <h1 className={styles.h1Slide}>Mint your pack</h1>
+          <p className={styles.pSlide}>If you want BeRies clothes</p>
+          <a href='/mint-pack-4'>
+          <button className={styles.buttonSlide4}>Choose...</button>
+          </a>
+        </div>
+      </div>
     </div>
 </div>
 
