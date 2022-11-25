@@ -31,6 +31,7 @@ const db = getFirestore(app);
 const Burn = () => {
   
   const [userBalance, setUserBalance] = useState(["X", "X" , "X", "X"]);
+  const [wannaBurn, setWannaBurn] = useState([0, 0, 0, 0]);
   const { address, isConnected } = useAccount();
   
   const getUserBalance = async () => {
@@ -43,18 +44,54 @@ const Burn = () => {
       signer
       );
       const balance = []
-       balance[0] = await contract.balanceOf(address, 0);
-       balance[0] = ethers.utils.formatUnits(balance[0], 0);
-       balance[1] = await contract.balanceOf(address, 1);
-       balance[1] = ethers.utils.formatUnits(balance[1], 0);
-       balance[2] = await contract.balanceOf(address, 2);
-       balance[2] = ethers.utils.formatUnits(balance[2], 0);
-       balance[3] = await contract.balanceOf(address, 3);
-       balance[3] = ethers.utils.formatUnits(balance[3], 0);
+      for (let i = 0; i < 4; i++) {
+        const balanceOf = await contract.balanceOf(address, i);
+        balance[i] = (ethers.utils.formatUnits(balanceOf, 0));
+      }
       await setUserBalance(balance);
     } catch (error) {
       console.log(error);
     }
+  }
+
+  const burn = async () => {
+    try { 
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+    const contract = new ethers.Contract(
+      BERIES_CONTRACT_ADDRESS,
+      BERIES_CONTRACT_ABI,
+      signer
+      );
+      console.log(wannaBurn);
+      const Burn = await contract.burnMany(wannaBurn);
+      await Burn.wait();
+      console.log("Burned");
+      getUserBalance();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const handleInput1 = (e) => {
+    const valeur = Number(e.target.value);
+    setWannaBurn([valeur, wannaBurn[1], wannaBurn[2], wannaBurn[3]]);
+  }
+  const handleInput2 = (e) => {
+    const valeur = Number(e.target.value);
+    setWannaBurn([wannaBurn[0], valeur, wannaBurn[2], wannaBurn[3]]);
+  }
+  const handleInput3 = (e) => {
+    const valeur = Number(e.target.value);
+    setWannaBurn([wannaBurn[0], wannaBurn[1], valeur, wannaBurn[3]]);
+  }
+  const handleInput4 = (e) => {
+    const valeur = Number(e.target.value);
+    setWannaBurn([wannaBurn[0], wannaBurn[1], wannaBurn[2], valeur]);
+  }
+
+  const handleBurn = async () => {
+    burn();
   }
 
   const handleSubmit = async (e) => {
@@ -88,7 +125,7 @@ const Burn = () => {
     city: "",
     info: "",
   }
-  
+
   function reducer(state, action){
     switch (action.type) {
       case "update_input":
@@ -129,7 +166,7 @@ const Burn = () => {
               <div className={styles.burnInputContainer}>
                 Pack 1 :
                 <div>
-                <input className={styles.burnInput} placeholder='....'>
+                <input className={styles.burnInput} placeholder='....' onChange={handleInput1} >
                 </input>
                 /{userBalance[0]}
                 </div>    
@@ -137,7 +174,7 @@ const Burn = () => {
               <div className={styles.burnInputContainer}>
                 Pack 2 :
                 <div>
-                <input className={styles.burnInput} placeholder='....'>
+                <input className={styles.burnInput} placeholder='....' onChange={handleInput2}>
 
                 </input>
                 /{userBalance[1]}
@@ -146,7 +183,7 @@ const Burn = () => {
               <div className={styles.burnInputContainer}>
                 Pack 3 :
                 <div>
-                <input className={styles.burnInput} placeholder='....'>
+                <input className={styles.burnInput} placeholder='....' onChange={handleInput3}>
 
                 </input>
                 /{userBalance[2]}
@@ -155,7 +192,7 @@ const Burn = () => {
               <div className={styles.burnInputContainer}>
                 Pack 4 :
                 <div>
-                <input className={styles.burnInput} placeholder='....'>
+                <input className={styles.burnInput} placeholder='....' onChange={handleInput4}>
 
                 </input>
                 /{userBalance[3]}
@@ -164,7 +201,7 @@ const Burn = () => {
             </div>
             <div className={styles.blueContainerLeft}>
               <h1>Choose wich NFTs to burn</h1>
-              <button className={styles.burnButton}>Burn</button>
+              <button className={styles.burnButton}  onClick={handleBurn}>Burn</button>
               <p>If you already did, form is down below</p>
             </div>
           </div>      
