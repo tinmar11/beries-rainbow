@@ -9,7 +9,7 @@ const Footer = (props) => {
         <footer className="footer-footer">
           <div className="footer-links-container">
             <div className="footer-container1">
-              <span className="footer-text footer-title">
+              <span className="footer-title">
                 More about BeRies
               </span>
               <a
@@ -24,7 +24,7 @@ const Footer = (props) => {
               </span>
             </div>
             <div className="footer-container2">
-              <span className="footer-text3 footer-title">Newsletter</span>
+              <span className="footer-title">Newsletter</span>
               <input
                 type="text"
                 placeholder={props.textinput_placeholder}
