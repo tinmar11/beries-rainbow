@@ -1,7 +1,7 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 const NavigationLinksMobile = (props) => {
   return (
@@ -50,13 +50,13 @@ const NavigationLinksMobile = (props) => {
             >
               <Link href="/mint-pack-2">
                 <a>
-              <div
-                data-thq="thq-dropdown-toggle"
-                className="navigation-links-dropdown-toggle2 dropdown"
-              >
-                <span className="navigation-links-text2">Pack 2</span>
-              </div>
-              </a>
+                  <div
+                    data-thq="thq-dropdown-toggle"
+                    className="navigation-links-dropdown-toggle2 dropdown"
+                  >
+                    <span className="navigation-links-text2">Pack 2</span>
+                  </div>
+                </a>
               </Link>
             </li>
             <li
@@ -65,13 +65,13 @@ const NavigationLinksMobile = (props) => {
             >
               <Link href="/mint-pack-3">
                 <a>
-              <div
-                data-thq="thq-dropdown-toggle"
-                className="navigation-links-dropdown-toggle3 dropdown"
-              >
-                <span className="navigation-links-text3">Pack 3</span>
-              </div>
-              </a>
+                  <div
+                    data-thq="thq-dropdown-toggle"
+                    className="navigation-links-dropdown-toggle3 dropdown"
+                  >
+                    <span className="navigation-links-text3">Pack 3</span>
+                  </div>
+                </a>
               </Link>
             </li>
             <li
@@ -80,13 +80,13 @@ const NavigationLinksMobile = (props) => {
             >
               <Link href="/mint-pack-4">
                 <a>
-              <div
-                data-thq="thq-dropdown-toggle"
-                className="navigation-links-dropdown-toggle4 dropdown"
-              >
-                <span className="navigation-links-text4">Pack 4</span>
-              </div>
-              </a>
+                  <div
+                    data-thq="thq-dropdown-toggle"
+                    className="navigation-links-dropdown-toggle4 dropdown"
+                  >
+                    <span className="navigation-links-text4">Pack 4</span>
+                  </div>
+                </a>
               </Link>
             </li>
           </ul>
@@ -128,7 +128,6 @@ const NavigationLinksMobile = (props) => {
             font-weight: 500;
             margin-right: 4px;
             vertical-align: middle;
-            
           }
           .navigation-links-dropdown-arrow {
             transition: 0.3s;
@@ -158,20 +157,17 @@ const NavigationLinksMobile = (props) => {
             list-style-position: inside;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
-            
           }
           .navigation-links-dropdown {
             cursor: pointer;
             display: inline-block;
             position: relative;
             border-radius: var(--dl-radius-radius-radius2);
-            
           }
           .navigation-links-dropdown-toggle1 {
             color: #0000ff;
             transition: 0.3s;
             text-decoration: none;
-            
           }
 
           .navigation-links-text1 {
@@ -181,7 +177,6 @@ const NavigationLinksMobile = (props) => {
             font-size: 30px;
             font-style: normal;
             font-weight: 500;
-            
           }
           .navigation-links-dropdown1 {
             cursor: pointer;
@@ -293,7 +288,6 @@ const NavigationLinksMobile = (props) => {
             text-decoration: none;
           }
 
-
           @media (max-width: 767px) {
             .navigation-links-nav {
               align-items: flex-start;
@@ -303,27 +297,25 @@ const NavigationLinksMobile = (props) => {
             .navigation-links-link1 {
               font-size: 35px;
               color: #0000ff;
-              border-bottom-width:2px;
+              border-bottom-width: 2px;
             }
-            
+
             .navigation-links-text {
               color: #0000ff;
               font-size: 35px;
               margin-right: 4px;
               margin-bottom: 15px;
-              border-bottom-width:2px;
+              border-bottom-width: 2px;
             }
 
             .navigation-links-link2 {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
               font-size: 35px;
-              border-bottom-width:2px;
-             }
-
+              border-bottom-width: 2px;
+            }
           }
-     
-     
+
           @media (max-width: 479px) {
             .navigation-links-nav {
             }
@@ -340,19 +332,19 @@ const NavigationLinksMobile = (props) => {
         `}
       </style>
     </>
-  )
-}
+  );
+};
 
 NavigationLinksMobile.defaultProps = {
-  Burn: 'Burn',
-  rootClassName: 'NavigationLinksMobile',
-  text2: 'Key Owner',
-}
+  Burn: "Burn",
+  rootClassName: "NavigationLinksMobile",
+  text2: "Key Owner",
+};
 
 NavigationLinksMobile.propTypes = {
   Burn: PropTypes.string,
   rootClassName: PropTypes.string,
   text2: PropTypes.string,
-}
+};
 
-export default NavigationLinksMobile
+export default NavigationLinksMobile;

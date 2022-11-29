@@ -2,9 +2,9 @@ import React from "react";
 import styles from "../styles/Community.module.css";
 
 const Community = () => {
-
-    return ( <>
-    <section id="community" className={styles.communitySection}>
+  return (
+    <>
+      <section id="community" className={styles.communitySection}>
         <div className={styles.imageWrapperOuter}>
           <div class={styles.imageWrapperInner}>
             <div className={styles.ImageRowWrapper1}>
@@ -40,22 +40,27 @@ const Community = () => {
               <div className={styles.image30}></div>
             </div>
           </div>
-    </div>
-    <div className={styles.divBlock14}>
-      <div  className={styles.h2}>Join the<br/>BeRies ✨<br/>community</div>
-      <a href="https://www.instagram.com/beries.eth/">
-        <div className={styles.divBlock15}><img src="/assets/6366475ccb0f68c0ec5b514e_insta.png" height="21"></img>
-          <div className={styles.paragrah2}>@beries.eth</div>
         </div>
-      </a>
-    </div>
-  </section>
+        <div className={styles.divBlock14}>
+          <div className={styles.h2}>
+            Join the
+            <br />
+            BeRies ✨<br />
+            community
+          </div>
+          <a href="https://www.instagram.com/beries.eth/">
+            <div className={styles.divBlock15}>
+              <img
+                src="/assets/6366475ccb0f68c0ec5b514e_insta.png"
+                height="21"
+              ></img>
+              <div className={styles.paragrah2}>@beries.eth</div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </>
+  );
+};
 
-    </>)
-
-
-
-
-}
-
-export default Community
+export default Community;

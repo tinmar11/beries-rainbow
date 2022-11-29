@@ -1,19 +1,18 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export default function FourOhFour() {
-  return <>
-  <div className='body'>
-    <div className='container'>
-    <h1 className='h1'>404</h1>
-    <Link href="/">
-      <a>
-        Go back home
-      </a>
-    </Link>
-    </div>
-    </div>
+  return (
+    <>
+      <div className="body">
+        <div className="container">
+          <h1 className="h1">404</h1>
+          <Link href="/">
+            <a>Go back home</a>
+          </Link>
+        </div>
+      </div>
 
-    <style jsx>
+      <style jsx>
         {`
           .body {
             overflow: hidden;
@@ -70,13 +69,6 @@ export default function FourOhFour() {
 
         `}
       </style>
-
-
-
-  </>
-
-
-
-
+    </>
+  );
 }
-

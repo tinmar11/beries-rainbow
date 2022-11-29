@@ -1,18 +1,15 @@
-import React from 'react'
-import Head from 'next/head'
-import styles from '../styles/Burn.module.css';
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
-import { useState } from 'react'
-import { useEffect } from 'react';
-import { useAccount, useBalance } from 'wagmi';
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import React from "react";
+import Head from "next/head";
+import styles from "../styles/Burn.module.css";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useAccount, useBalance } from "wagmi";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import {
-  BERIES_CONTRACT_ABI,
-  BERIES_CONTRACT_ADDRESS,
-} from "../constants";
+import { BERIES_CONTRACT_ABI, BERIES_CONTRACT_ADDRESS } from "../constants";
 import { ethers } from "ethers";
 
 const firebaseConfig = {
@@ -22,38 +19,35 @@ const firebaseConfig = {
   storageBucket: "beries-53ae1.appspot.com",
   messagingSenderId: "991951043377",
   appId: "1:991951043377:web:5b71cbebad323283e10e10",
-  measurementId: "G-9RBVVZFRFX"
+  measurementId: "G-9RBVVZFRFX",
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const Burn = () => {
-  
-  const [userBalance, setUserBalance] = useState(["X", "X" , "X", "X"]);
+  const [userBalance, setUserBalance] = useState(["X", "X", "X", "X"]);
   const [burnedBalance, setBurnedBalance] = useState([0, 0, 0, 0]);
   const [wannaBurn, setWannaBurn] = useState([0, 0, 0, 0]);
   const { address, isConnected } = useAccount();
   const [submitButton, setSubmitButton] = useState(true);
 
-
   const doubleBalance = async () => {
-
-    try { 
+    try {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-    const contract = new ethers.Contract(
-      BERIES_CONTRACT_ADDRESS,
-      BERIES_CONTRACT_ABI,
-      signer
+      const contract = new ethers.Contract(
+        BERIES_CONTRACT_ADDRESS,
+        BERIES_CONTRACT_ABI,
+        signer
       );
       const balance = [];
       const burned = [];
       for (let i = 0; i < 4; i++) {
         const balanceOf = await contract.balanceOf(address, i);
         const tBurnedBalance = await contract.burnedToken(address, i);
-        balance[i] = (ethers.utils.formatUnits(balanceOf, 0));
-        burned[i] = (ethers.utils.formatUnits(tBurnedBalance, 0));
+        balance[i] = ethers.utils.formatUnits(balanceOf, 0);
+        burned[i] = ethers.utils.formatUnits(tBurnedBalance, 0);
       }
       console.log(burned);
       setUserBalance(balance);
@@ -62,33 +56,31 @@ const Burn = () => {
     } catch (error) {
       console.log(error);
     }
-  }
-    const firbaseData = async (burned) =>  {
-      
-      const docRef = doc(db, "orders", address);
-      const docSnap = await getDoc(docRef);
+  };
+  const firbaseData = async (burned) => {
+    const docRef = doc(db, "orders", address);
+    const docSnap = await getDoc(docRef);
+    var snapshot = docSnap.data().burned;
+    if (snapshot != undefined) {
       var snapshot = docSnap.data().burned;
-      if (snapshot != undefined) {
-         
-         var snapshot = docSnap.data().burned;
-         console.log(snapshot, 'IL RENTRE');
-         if (snapshot.toString() != burned.toString()) {
-            setSubmitButton(false);
-         } 
-      } else if (burned.toString() != '0,0,0,0') {
-        setSubmitButton(true);
-        console.log("You can submit your order");
+      console.log(snapshot, "IL RENTRE");
+      if (snapshot.toString() != burned.toString()) {
+        setSubmitButton(false);
       }
+    } else if (burned.toString() != "0,0,0,0") {
+      setSubmitButton(true);
+      console.log("You can submit your order");
     }
+  };
 
   const burn = async () => {
-    try { 
+    try {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-    const contract = new ethers.Contract(
-      BERIES_CONTRACT_ADDRESS,
-      BERIES_CONTRACT_ABI,
-      signer
+      const contract = new ethers.Contract(
+        BERIES_CONTRACT_ADDRESS,
+        BERIES_CONTRACT_ABI,
+        signer
       );
       console.log("Your current balance is  : ", userBalance);
       console.log("You've already burned : ", burnedBalance, " tokens");
@@ -100,34 +92,32 @@ const Burn = () => {
     } catch (error) {
       console.log(error);
     }
-  }
-  
+  };
+
   const handleInput1 = (e) => {
     const valeur = Number(e.target.value);
     setWannaBurn([valeur, wannaBurn[1], wannaBurn[2], wannaBurn[3]]);
-  }
+  };
   const handleInput2 = (e) => {
     const valeur = Number(e.target.value);
     setWannaBurn([wannaBurn[0], valeur, wannaBurn[2], wannaBurn[3]]);
-  }
+  };
   const handleInput3 = (e) => {
     const valeur = Number(e.target.value);
     setWannaBurn([wannaBurn[0], wannaBurn[1], valeur, wannaBurn[3]]);
-  }
+  };
   const handleInput4 = (e) => {
     const valeur = Number(e.target.value);
     setWannaBurn([wannaBurn[0], wannaBurn[1], wannaBurn[2], valeur]);
-  }
+  };
 
   const handleBurn = async () => {
-    if (burnedBalance)
-    burn();
-  }
+    if (burnedBalance) burn();
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     
       await setDoc(doc(db, "orders", address), {
         address: address,
         name: state.name,
@@ -142,11 +132,10 @@ const Burn = () => {
       });
       console.log("Document written with ID: ", address);
       setSubmitButton(true);
-      
     } catch (e) {
       console.error("Error adding document: ", e);
     }
-  }
+  };
   const initialState = {
     name: "",
     email: "",
@@ -156,27 +145,26 @@ const Burn = () => {
     country: "",
     city: "",
     info: "",
-  }
+  };
 
-  function reducer(state, action){
+  function reducer(state, action) {
     switch (action.type) {
       case "update_input":
         return {
           ...state,
-          [action.key]: action.value
-        }
-      }
-      
+          [action.key]: action.value,
+        };
     }
-    const [state, dispatch] = React.useReducer(reducer, initialState);
-    
-    useEffect (() => {
-      doubleBalance();
-    }, [isConnected]);
-    
-    return (
-      <>
-    <div className={styles.burnContainer}>
+  }
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  useEffect(() => {
+    doubleBalance();
+  }, [isConnected]);
+
+  return (
+    <>
+      <div className={styles.burnContainer}>
         <Head>
           <title>Burn - BeRies</title>
           <meta property="og:title" content="Burn - BeRies" />
@@ -189,187 +177,222 @@ const Burn = () => {
           </span>
         </section>
 
-        
         {isConnected ? (
-        <div className={styles.div}>
-          <div className={styles.blueContainer}>
-            <div className={styles.blueContainerRight}>
-
-              <div className={styles.burnInputContainer}>
-                Pack 1 :
-                <div>
-                <input className={styles.burnInput} placeholder='....' onChange={handleInput1} >
-                </input>
-                /{userBalance[0]}
-                </div>    
+          <div className={styles.div}>
+            <div className={styles.blueContainer}>
+              <div className={styles.blueContainerRight}>
+                <div className={styles.burnInputContainer}>
+                  Pack 1 :
+                  <div>
+                    <input
+                      className={styles.burnInput}
+                      placeholder="...."
+                      onChange={handleInput1}
+                    ></input>
+                    /{userBalance[0]}
+                  </div>
+                </div>
+                <div className={styles.burnInputContainer}>
+                  Pack 2 :
+                  <div>
+                    <input
+                      className={styles.burnInput}
+                      placeholder="...."
+                      onChange={handleInput2}
+                    ></input>
+                    /{userBalance[1]}
+                  </div>
+                </div>
+                <div className={styles.burnInputContainer}>
+                  Pack 3 :
+                  <div>
+                    <input
+                      className={styles.burnInput}
+                      placeholder="...."
+                      onChange={handleInput3}
+                    ></input>
+                    /{userBalance[2]}
+                  </div>
+                </div>
+                <div className={styles.burnInputContainer}>
+                  Pack 4 :
+                  <div>
+                    <input
+                      className={styles.burnInput}
+                      placeholder="...."
+                      onChange={handleInput4}
+                    ></input>
+                    /{userBalance[3]}
+                  </div>
+                </div>
               </div>
-              <div className={styles.burnInputContainer}>
-                Pack 2 :
-                <div>
-                <input className={styles.burnInput} placeholder='....' onChange={handleInput2}>
-
-                </input>
-                /{userBalance[1]}
-                </div>    
-              </div>
-              <div className={styles.burnInputContainer}>
-                Pack 3 :
-                <div>
-                <input className={styles.burnInput} placeholder='....' onChange={handleInput3}>
-
-                </input>
-                /{userBalance[2]}
-                </div>    
-              </div>
-              <div className={styles.burnInputContainer}>
-                Pack 4 :
-                <div>
-                <input className={styles.burnInput} placeholder='....' onChange={handleInput4}>
-
-                </input>
-                /{userBalance[3]}
-                </div>    
+              <div className={styles.blueContainerLeft}>
+                <h1>Choose wich NFTs to burn</h1>
+                <button className={styles.burnButton} onClick={handleBurn}>
+                  Burn
+                </button>
+                <p>If you already did, form is down below</p>
               </div>
             </div>
-            <div className={styles.blueContainerLeft}>
-              <h1>Choose wich NFTs to burn</h1>
-              <button className={styles.burnButton}  onClick={handleBurn}>Burn</button>
-              <p>If you already did, form is down below</p>
-            </div>
-          </div>      
-      <form id="burn for shipping" onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.burnImageContainer}>
+            <form
+              id="burn for shipping"
+              onSubmit={handleSubmit}
+              className={styles.form}
+            >
+              <div className={styles.burnImageContainer}>
+                <div className={styles.row}>
+                  <div className={styles.inputContainer}>
+                    <h1 className={styles.inputTitle}>Email</h1>
+                    <input
+                      placeholder="anon@beries.com"
+                      className={styles.input}
+                      value={state.email}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_input",
+                          key: "email",
+                          value: e.target.value,
+                        })
+                      }
+                    ></input>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <h1 className={styles.inputTitle}>State/Prov/Region</h1>
+                    <input
+                      placeholder="Ile-de-France"
+                      className={styles.input}
+                      value={state.region}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_input",
+                          key: "region",
+                          value: e.target.value,
+                        })
+                      }
+                    ></input>
+                  </div>
+                </div>
 
-        <div className={styles.row}>
-          <div className={styles.inputContainer}>
-            <h1 className={styles.inputTitle}>Email</h1>
-            <input 
-              placeholder='anon@beries.com' 
-              className={styles.input}
-              value={state.email}
-              onChange={(e) => dispatch({ 
-                type: "update_input",
-                key: "email",
-                value: e.target.value
-              })}>
-            </input>
-          </div>
-          <div className={styles.inputContainer}>
-            <h1 className={styles.inputTitle}>State/Prov/Region</h1>
-            <input 
-              placeholder='Ile-de-France'
-              className={styles.input}
-              value={state.region}
-              onChange={(e) => dispatch({ 
-                type: "update_input",
-                key: "region",
-                value: e.target.value
-              })}>
-            </input>
-          </div>
-        </div>
+                <div className={styles.row}>
+                  <div className={styles.inputContainer}>
+                    <h1 className={styles.inputTitle}>Name</h1>
+                    <input
+                      placeholder="Onze Gmi"
+                      className={styles.input}
+                      value={state.name}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_input",
+                          key: "name",
+                          value: e.target.value,
+                        })
+                      }
+                    ></input>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <h1 className={styles.inputTitle}>Postal/Zip</h1>
+                    <input
+                      placeholder="75007"
+                      className={styles.input}
+                      value={state.zip}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_input",
+                          key: "zip",
+                          value: e.target.value,
+                        })
+                      }
+                    ></input>
+                  </div>
+                </div>
 
-          <div className={styles.row}>
-          <div className={styles.inputContainer}>
-            <h1 className={styles.inputTitle}>Name</h1>
-            <input 
-              placeholder='Onze Gmi'
-              className={styles.input}
-              value={state.name}
-              onChange={(e) => dispatch({ 
-                type: "update_input",
-                key: "name",
-                value: e.target.value
-              })}></input>
+                <div className={styles.row}>
+                  <div className={styles.inputContainer}>
+                    <h1 className={styles.inputTitle}>Street</h1>
+                    <input
+                      placeholder="5 av. Anatole France"
+                      className={styles.input}
+                      value={state.street}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_input",
+                          key: "street",
+                          value: e.target.value,
+                        })
+                      }
+                    ></input>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <h1 className={styles.inputTitle}>Country</h1>
+                    <input
+                      placeholder="France"
+                      className={styles.input}
+                      value={state.country}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_input",
+                          key: "country",
+                          value: e.target.value,
+                        })
+                      }
+                    ></input>
+                  </div>
+                </div>
+                <div className={styles.row}>
+                  <div className={styles.inputContainer}>
+                    <h1 className={styles.inputTitle}>City</h1>
+                    <input
+                      placeholder="Paris"
+                      className={styles.input}
+                      value={state.city}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_input",
+                          key: "city",
+                          value: e.target.value,
+                        })
+                      }
+                    ></input>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <h1 className={styles.inputTitle}>Additional info</h1>
+                    <input
+                      placeholder="anon@beries.com"
+                      className={styles.input}
+                      value={state.info}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_input",
+                          key: "info",
+                          value: e.target.value,
+                        })
+                      }
+                    ></input>
+                  </div>
+                </div>
+                <div className={styles.row}>
+                  <button
+                    className={styles.submitButton}
+                    type="submit"
+                    disabled={submitButton}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
-          <div className={styles.inputContainer}>
-            <h1 className={styles.inputTitle}>Postal/Zip</h1>
-            <input 
-              placeholder='75007'
-              className={styles.input}
-              value={state.zip}
-              onChange={(e) => dispatch({ 
-                type: "update_input",
-                key: "zip",
-                value: e.target.value
-              })}>
-            </input>
-          </div>
-          </div>
-
-          <div className={styles.row}>
-          <div className={styles.inputContainer}>
-            <h1 className={styles.inputTitle}>Street</h1>
-            <input 
-              placeholder='5 av. Anatole France'
-              className={styles.input}
-              value={state.street}
-              onChange={(e) => dispatch({ 
-                type: "update_input",
-                key: "street",
-                value: e.target.value
-              })}>
-            </input>
-          </div>
-          <div className={styles.inputContainer}>
-            <h1 className={styles.inputTitle}>Country</h1>
-            <input 
-              placeholder='France'
-              className={styles.input}
-              value={state.country}
-              onChange={(e) => dispatch({ 
-                type: "update_input",
-                key: "country",
-                value: e.target.value
-              })}></input>
-          </div>
-        </div>
-        <div className={styles.row}>
-          <div className={styles.inputContainer}>
-            <h1 className={styles.inputTitle}>City</h1>
-            <input 
-              placeholder='Paris'
-              className={styles.input}
-              value={state.city}
-              onChange={(e) => dispatch({ 
-                type: "update_input",
-                key: "city",
-                value: e.target.value
-              })}></input>
-          </div>
-          <div className={styles.inputContainer}>
-            <h1 className={styles.inputTitle}>Additional info</h1>
-            <input 
-              placeholder='anon@beries.com'
-              className={styles.input}
-              value={state.info}
-              onChange={(e) => dispatch({ 
-                type: "update_input",
-                key: "info",
-                value: e.target.value
-              })}></input>
-          </div>
-          </div>
-          <div className={styles.row}>
-              <button className={styles.submitButton} type='submit' disabled={submitButton}>Submit</button>
-          </div>
-          </div>
-      </form>
-      </div>   
         ) : (
           <div className={styles.blueContainer}>
-          
-          <h1 className={styles.pleaseConnect}>
-            Please connect your wallet to continue.
-          </h1>
-        </div>
-       
-                ) 
-              }
+            <h1 className={styles.pleaseConnect}>
+              Please connect your wallet to continue.
+            </h1>
+          </div>
+        )}
         <Footer rootClassName="footer-root-class-name4"></Footer>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Burn
+export default Burn;

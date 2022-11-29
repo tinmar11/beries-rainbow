@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 const Footer = (props) => {
   return (
@@ -9,9 +9,7 @@ const Footer = (props) => {
         <footer className="footer-footer">
           <div className="footer-links-container">
             <div className="footer-container1">
-              <span className="footer-title">
-                More about BeRies
-              </span>
+              <span className="footer-title">More about BeRies</span>
               <a
                 href="mailto:contact@beries.xyz?subject="
                 className="footer-link footer-text"
@@ -420,19 +418,19 @@ const Footer = (props) => {
         `}
       </style>
     </>
-  )
-}
+  );
+};
 
 Footer.defaultProps = {
-  image_src2: '/assets/insta-icon-200h.webp',
-  image_alt2: 'image',
-  textinput_placeholder: 'placeholder',
-  image_src1: '/assets/medium-icon-200h.webp',
-  image_alt: 'image',
-  image_alt1: 'image',
-  rootClassName: '',
-  image_src: '/assets/twitter-icon-200h.webp',
-}
+  image_src2: "/assets/insta-icon-200h.webp",
+  image_alt2: "image",
+  textinput_placeholder: "placeholder",
+  image_src1: "/assets/medium-icon-200h.webp",
+  image_alt: "image",
+  image_alt1: "image",
+  rootClassName: "",
+  image_src: "/assets/twitter-icon-200h.webp",
+};
 
 Footer.propTypes = {
   image_src2: PropTypes.string,
@@ -443,6 +441,6 @@ Footer.propTypes = {
   image_alt1: PropTypes.string,
   rootClassName: PropTypes.string,
   image_src: PropTypes.string,
-}
+};
 
-export default Footer
+export default Footer;

@@ -1,27 +1,26 @@
-import React from 'react'
-import Head from 'next/head'
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
-import styles from '../styles/Slider.module.css';
-import Image from 'next/image';
+import React from "react";
+import Head from "next/head";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import styles from "../styles/Slider.module.css";
+import Image from "next/image";
 import { useState } from "react";
-import MeetOurTeam from '../components/meet-our-team';
-import HowItWorks from '../components/how-it-works';
-import Community from '../components/community';
-import Preloader from '../components/preloader';
-
+import MeetOurTeam from "../components/meet-our-team";
+import HowItWorks from "../components/how-it-works";
+import Community from "../components/community";
+import Preloader from "../components/preloader";
 
 const Home = (props) => {
-
   const [index, setIndex] = useState(0);
   const handleArrow = (direction) => {
-    if (direction === 'left') {``
+    if (direction === "left") {
+      ``;
       setIndex(index !== 0 ? index - 1 : 3);
     }
-    if (direction === 'right') {
+    if (direction === "right") {
       setIndex(index !== 3 ? index + 1 : 0);
     }
-  }
+  };
   console.log(index);
 
   return (
@@ -32,88 +31,120 @@ const Home = (props) => {
           <meta property="og:title" content="BeRies" />
         </Head>
         <Navbar rootClassName="navbar-root-class-name"></Navbar>
-        
+
         <main id="slider" className="home-slider">
-<div className={styles.leftArrowContainer} style={{left:0}} onClick={() => handleArrow("left")}>
-    
-    <Image src="/assets/arrow.svg" className={styles.arrowl} width={40} height={40} />
-</div>
+          <div
+            className={styles.leftArrowContainer}
+            style={{ left: 0 }}
+            onClick={() => handleArrow("left")}
+          >
+            <Image
+              src="/assets/arrow.svg"
+              className={styles.arrowl}
+              width={40}
+              height={40}
+            />
+          </div>
 
-<div className={styles.wrapper} style={{transform:`translateX(${-100*index}vw)` }}>
-    <div className={styles.pack1Container}>
-      <div className={styles.leftColumn}>
-        <img src='/assets/nft-boite-pack-1-1500h.webp' className={styles.packImage}></img>
-      </div>
+          <div
+            className={styles.wrapper}
+            style={{ transform: `translateX(${-100 * index}vw)` }}
+          >
+            <div className={styles.pack1Container}>
+              <div className={styles.leftColumn}>
+                <img
+                  src="/assets/nft-boite-pack-1-1500h.webp"
+                  className={styles.packImage}
+                ></img>
+              </div>
 
-      <div className={styles.rightColumn}>
-        <div className={styles.rightContainer}>
-          <h1 className={styles.h1Slide}>Mint your pack</h1>
-          <p className={styles.pSlide}>If you want BeRies clothes</p>
-          <a href='/mint-pack-1'>
-          <button className={styles.buttonSlide1}>Choose...</button>
-          </a>
-        </div>
-      </div>
-    </div>
+              <div className={styles.rightColumn}>
+                <div className={styles.rightContainer}>
+                  <h1 className={styles.h1Slide}>Mint your pack</h1>
+                  <p className={styles.pSlide}>If you want BeRies clothes</p>
+                  <a href="/mint-pack-1">
+                    <button className={styles.buttonSlide1}>Choose...</button>
+                  </a>
+                </div>
+              </div>
+            </div>
 
-    <div className={styles.pack2Container}>
-    <div className={styles.leftColumn}>
-        <img src='/assets/nft-boite-pack-2-1500h.webp' className={styles.packImage}></img>
-      </div>
+            <div className={styles.pack2Container}>
+              <div className={styles.leftColumn}>
+                <img
+                  src="/assets/nft-boite-pack-2-1500h.webp"
+                  className={styles.packImage}
+                ></img>
+              </div>
 
-      <div className={styles.rightColumn}>
-        <div className={styles.rightContainer}>
-          <h1 className={styles.h1Slide}>Mint your pack</h1>
-          <p className={styles.pSlide}>If you want BeRies clothes</p>
-          <a href='/mint-pack-2'>
-          <button className={styles.buttonSlide2}>Choose...</button>
-          </a>
-        </div>
-      </div>
-    </div>
+              <div className={styles.rightColumn}>
+                <div className={styles.rightContainer}>
+                  <h1 className={styles.h1Slide}>Mint your pack</h1>
+                  <p className={styles.pSlide}>If you want BeRies clothes</p>
+                  <a href="/mint-pack-2">
+                    <button className={styles.buttonSlide2}>Choose...</button>
+                  </a>
+                </div>
+              </div>
+            </div>
 
-    <div className={styles.pack3Container}>
-    <div className={styles.leftColumn}>
-        <img src='/assets/nft-boite-pack-3-1500h.webp' className={styles.packImage}></img>
-      </div>
+            <div className={styles.pack3Container}>
+              <div className={styles.leftColumn}>
+                <img
+                  src="/assets/nft-boite-pack-3-1500h.webp"
+                  className={styles.packImage}
+                ></img>
+              </div>
 
-      <div className={styles.rightColumn}>
-        <div className={styles.rightContainer}>
-          <h1 className={styles.h1Slide}>Mint your pack</h1>
-          <p className={styles.pSlide}>If you want BeRies clothes</p>
-          <a href='/mint-pack-3'>
-          <button className={styles.buttonSlide3}>Choose...</button>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div className={styles.pack4Container}>
-    <div className={styles.leftColumn}>
-        <img src='/assets/nft-boite-pack-4-1500h.webp' className={styles.packImage}></img>
-      </div>
+              <div className={styles.rightColumn}>
+                <div className={styles.rightContainer}>
+                  <h1 className={styles.h1Slide}>Mint your pack</h1>
+                  <p className={styles.pSlide}>If you want BeRies clothes</p>
+                  <a href="/mint-pack-3">
+                    <button className={styles.buttonSlide3}>Choose...</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className={styles.pack4Container}>
+              <div className={styles.leftColumn}>
+                <img
+                  src="/assets/nft-boite-pack-4-1500h.webp"
+                  className={styles.packImage}
+                ></img>
+              </div>
 
-      <div className={styles.rightColumn}>
-        <div className={styles.rightContainer}>
-          <h1 className={styles.h1Slide}>Mint your pack</h1>
-          <p className={styles.pSlide}>If you want BeRies clothes</p>
-          <a href='/mint-pack-4'>
-          <button className={styles.buttonSlide4}>Choose...</button>
-          </a>
-        </div>
-      </div>
-    </div>
-</div>
+              <div className={styles.rightColumn}>
+                <div className={styles.rightContainer}>
+                  <h1 className={styles.h1Slide}>Mint your pack</h1>
+                  <p className={styles.pSlide}>If you want BeRies clothes</p>
+                  <a href="/mint-pack-4">
+                    <button className={styles.buttonSlide4}>Choose...</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<div className={styles.rightArrowContainer} style={{right:0}} onClick={() => handleArrow("right")}>
-<Image src="/assets/arrow.svg" className={styles.arrowr} width={40} height={40} />
-</div>
-</main>
+          <div
+            className={styles.rightArrowContainer}
+            style={{ right: 0 }}
+            onClick={() => handleArrow("right")}
+          >
+            <Image
+              src="/assets/arrow.svg"
+              className={styles.arrowr}
+              width={40}
+              height={40}
+            />
+          </div>
+        </main>
         <HowItWorks rootClassName="HowItWorks"></HowItWorks>
 
         <Community rootClassName="Community"></Community>
 
         <MeetOurTeam rootClassName="MeetOurTeam"></MeetOurTeam>
-        
+
         <Footer rootClassName="footer-root-class-name"></Footer>
       </div>
       <style jsx>
@@ -591,7 +622,7 @@ const Home = (props) => {
         `}
       </style>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,11 +1,10 @@
-import React from 'react'
-import Head from 'next/head'
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
-import { mintFunction } from '../functions/mintFunction.js'
+import React from "react";
+import Head from "next/head";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import { mintFunction } from "../functions/mintFunction.js";
 
 const MintPack3 = (props) => {
-
   const handleClick = () => {
     mintFunction(2, 1);
   };
@@ -16,9 +15,7 @@ const MintPack3 = (props) => {
         <Head>
           <title>Mint-pack-3 - BeRies</title>
           <meta property="og:title" content="Mint-pack-3 - BeRies" />
-          <meta
-            property="og:image"
-          />
+          <meta property="og:image" />
         </Head>
         <Navbar rootClassName="navbar-root-class-name"></Navbar>
 
@@ -412,7 +409,7 @@ const MintPack3 = (props) => {
         `}
       </style>
     </>
-  )
-}
+  );
+};
 
-export default MintPack3
+export default MintPack3;

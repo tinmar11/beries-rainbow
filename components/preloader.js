@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 const Preloader = (props) => {
-  
   return (
     <>
       <div className={`preloader-container ${props.rootClassName} `}>
@@ -13,9 +12,7 @@ const Preloader = (props) => {
           className="preloader-logo-beries-blanc"
         />
         <span className="press-to-enter">{props.text}</span>
-        <img src='/assets/arrow.svg'
-          className="preloader-arrow"
-        />
+        <img src="/assets/arrow.svg" className="preloader-arrow" />
       </div>
       <style jsx>
         {`
@@ -35,7 +32,7 @@ const Preloader = (props) => {
             width: 363px;
             animation: logo-appear 1.5s cubic-bezier(0.83, 0, 0.17, 1) forwards;
           }
-          .preloader-arrow {  
+          .preloader-arrow {
             width: 40px;
             transform: rotateZ(-90deg);
             animation: arrow-appear 1s cubic-bezier(0.83, 0, 0.17, 1) forwards;
@@ -48,59 +45,56 @@ const Preloader = (props) => {
             animation: text-appear 1s cubic-bezier(0.83, 0, 0.17, 1) forwards;
             animation-delay: 1s;
             opacity: 0;
-
           }
 
           @keyframes text-appear {
-            0%{
+            0% {
               transform: translateY(-30px);
-              
+
               opacity: 0;
             }
-            100%{
+            100% {
               opacity: 1;
             }
           }
 
           @keyframes arrow-appear {
-            0%{
+            0% {
               transform: translateY(-30px);
               opacity: 0;
             }
-            100%{
+            100% {
               opacity: 1;
             }
           }
 
           @keyframes logo-appear {
-            0%{
+            0% {
               transform: translateY(-65px);
               filter: blur(5px);
               opacity: 0;
             }
             100% {
               opacity: 1;
-
             }
           }
-
         `}
       </style>
     </>
-  )
-}
+  );
+};
 
 Preloader.defaultProps = {
-  image_src: '/assets/logo blanc.svg',
-  image_src1: '/assets/arrow.svg',
-  text: 'Press to enter...',
-}
+  image_src: "/assets/logo blanc.svg",
+  image_src1: "/assets/arrow.svg",
+  text: "Press to enter...",
+};
 
 Preloader.propTypes = {
   image_src: PropTypes.string,
   image_src1: PropTypes.string,
   text: PropTypes.string,
   rootClassName: PropTypes.string,
-}
+};
 
-export default Preloader
+export default Preloader;

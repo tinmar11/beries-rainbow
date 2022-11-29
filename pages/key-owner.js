@@ -1,8 +1,8 @@
-import React from 'react'
-import Head from 'next/head'
+import React from "react";
+import Head from "next/head";
 
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 const KeyOwner = (props) => {
   return (
@@ -11,9 +11,7 @@ const KeyOwner = (props) => {
         <Head>
           <title>Key-Owner - BeRies</title>
           <meta property="og:title" content="Key-Owner - BeRies" />
-          <meta
-
-          />
+          <meta />
         </Head>
         <Navbar rootClassName="navbar-root-class-name1"></Navbar>
         <section id="title section" className="key-owner-title-section">
@@ -23,7 +21,7 @@ const KeyOwner = (props) => {
               If you have the BeRies key, this page is for you.
               <span
                 dangerouslySetInnerHTML={{
-                  __html: ' ',
+                  __html: " ",
                 }}
               />
             </span>
@@ -63,7 +61,7 @@ const KeyOwner = (props) => {
               *As a reminder, unique items will be added to your package, this
               is part of the advantages of the key.
             </span>
-            
+
             <button className="key-owner-button mint-button button">
               Mint for free
             </button>
@@ -214,7 +212,7 @@ const KeyOwner = (props) => {
         `}
       </style>
     </>
-  )
-}
+  );
+};
 
-export default KeyOwner
+export default KeyOwner;

@@ -1,9 +1,9 @@
-import React from 'react'
-import Link from 'next/link'
-import PropTypes from 'prop-types'
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import NavigationLinks from './navigation-links'
-import NavigationLinksMobile from './navigation-links-mobile';
+import React from "react";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import NavigationLinks from "./navigation-links";
+import NavigationLinksMobile from "./navigation-links-mobile";
 
 const Navbar = (props) => {
   return (
@@ -22,8 +22,8 @@ const Navbar = (props) => {
             </Link>
           </div>
           <NavigationLinks rootClassName="rootClassName12"></NavigationLinks>
-            <ConnectButton />
-          
+          <ConnectButton />
+
           <div data-type="BurgerMenu" className="navbar-burger-menu">
             <svg viewBox="0 0 1024 1024" className="navbar-icon">
               <path d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"></path>
@@ -197,15 +197,15 @@ const Navbar = (props) => {
         `}
       </style>
     </>
-  )
-}
+  );
+};
 
 Navbar.defaultProps = {
-  rootClassName: '',
-}
+  rootClassName: "",
+};
 
 Navbar.propTypes = {
   rootClassName: PropTypes.string,
-}
+};
 
-export default Navbar
+export default Navbar;

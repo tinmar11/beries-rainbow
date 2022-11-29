@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 const HowItWorks = (props) => {
   return (
@@ -267,7 +267,7 @@ const HowItWorks = (props) => {
             color: var(--dl-color-gray-500);
             font-size: 0.75rem;
             text-align: left;
-            padding-right: 50px;  
+            padding-right: 50px;
           }
           @media (max-width: 991px) {
             .how-it-works-how-it-works {
@@ -458,21 +458,21 @@ const HowItWorks = (props) => {
         `}
       </style>
     </>
-  )
-}
+  );
+};
 
 HowItWorks.defaultProps = {
-  heading: 'How it works ?',
-  heading1: 'Mint',
-  heading2: 'Burn',
-  heading3: 'Shipping',
-  image_src: '/assets/1.svg',
-  image_alt: 'image',
-  image_src1: '/assets/2.svg',
-  image_alt1: 'image',
-  image_src2: '/assets/3.svg',
-  image_alt2: 'image',
-}
+  heading: "How it works ?",
+  heading1: "Mint",
+  heading2: "Burn",
+  heading3: "Shipping",
+  image_src: "/assets/1.svg",
+  image_alt: "image",
+  image_src1: "/assets/2.svg",
+  image_alt1: "image",
+  image_src2: "/assets/3.svg",
+  image_alt2: "image",
+};
 
 HowItWorks.propTypes = {
   heading: PropTypes.string,
@@ -485,6 +485,6 @@ HowItWorks.propTypes = {
   image_alt1: PropTypes.string,
   image_src2: PropTypes.string,
   image_alt2: PropTypes.string,
-}
+};
 
-export default HowItWorks
+export default HowItWorks;

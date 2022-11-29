@@ -1,8 +1,8 @@
-import React from 'react'
-import Head from 'next/head'
+import React from "react";
+import Head from "next/head";
 
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 const Shipping = (props) => {
   return (
@@ -10,10 +10,7 @@ const Shipping = (props) => {
       <div className="shipping-container">
         <Head>
           <title>Shipping - BeRies</title>
-          <meta
-            property="og:title"
-            content="Shipping - BeRies"
-          />
+          <meta property="og:title" content="Shipping - BeRies" />
         </Head>
         <Navbar rootClassName="navbar-root-class-name2"></Navbar>
         <form
@@ -327,7 +324,7 @@ const Shipping = (props) => {
         `}
       </style>
     </>
-  )
-}
+  );
+};
 
-export default Shipping
+export default Shipping;

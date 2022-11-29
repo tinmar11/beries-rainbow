@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 const MeetOurTeam = (props) => {
   return (
@@ -512,44 +512,44 @@ const MeetOurTeam = (props) => {
         `}
       </style>
     </>
-  )
-}
+  );
+};
 
 MeetOurTeam.defaultProps = {
-  heading: 'Meet our team',
+  heading: "Meet our team",
 
-  text: '@0x11nze',
-  text1: 'CEO - Artistic Director',
-  image_src: '/assets/team/Onze.png',
+  text: "@0x11nze",
+  text1: "CEO - Artistic Director",
+  image_src: "/assets/team/Onze.png",
 
-  text2: '@0xTinmar',
-  text3: 'Front End Dev',
-  image_src1: '/assets/team/tinmar.png',
+  text2: "@0xTinmar",
+  text3: "Front End Dev",
+  image_src1: "/assets/team/tinmar.png",
 
-  text4: '@Johra',
-  text5: 'Solidity Dev',
-  image_src2: '/assets/account-200h.png',
+  text4: "@Johra",
+  text5: "Solidity Dev",
+  image_src2: "/assets/account-200h.png",
 
-  text6: '@1tbk1',
-  text7: 'Chief Editor',
-  image_src3: '/assets/team/1tbk1.png',
+  text6: "@1tbk1",
+  text7: "Chief Editor",
+  image_src3: "/assets/team/1tbk1.png",
 
-  text8: '@SpadeFX',
-  text9: 'BeRies Builder',
-  image_src4: '/assets/team/SpadeFx.png',
+  text8: "@SpadeFX",
+  text9: "BeRies Builder",
+  image_src4: "/assets/team/SpadeFx.png",
 
-  text10: '@IdrissMarcus',
-  text11: 'Muse',
-  image_src5: '/assets/team/IdrissMarcus.png',
+  text10: "@IdrissMarcus",
+  text11: "Muse",
+  image_src5: "/assets/team/IdrissMarcus.png",
 
-  text12: '@Kahili_S',
-  text13: 'Muse',
-  image_src6: '/assets/team/Kahili.png',
+  text12: "@Kahili_S",
+  text13: "Muse",
+  image_src6: "/assets/team/Kahili.png",
 
-  text14: '@1tbk1',
-  text15: 'Chief Editor',
-  image_src7: '/assets/account-200h.png',
-}
+  text14: "@1tbk1",
+  text15: "Chief Editor",
+  image_src7: "/assets/account-200h.png",
+};
 
 MeetOurTeam.propTypes = {
   image_src5: PropTypes.string,
@@ -585,6 +585,6 @@ MeetOurTeam.propTypes = {
   image_src4: PropTypes.string,
   heading: PropTypes.string,
   text: PropTypes.string,
-}
+};
 
-export default MeetOurTeam
+export default MeetOurTeam;
