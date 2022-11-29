@@ -17,7 +17,7 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
 const { chains, provider } = configureChains(
-  [chain.goerli, chain.arbitrum],
+  [chain.goerli],
   [
    // alchemyProvider({ apiKey: process.env.ALCHEMY_ID }),
     publicProvider()
@@ -25,7 +25,7 @@ const { chains, provider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'My RainbowKit App',
+  appName: 'BeRies App',
   chains
 });
 
@@ -41,7 +41,9 @@ export default function MyApp({
 }) {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider modalSize="compact" chains={chains} 
+      <RainbowKitProvider modalSize="compact" 
+      initialChain={chain.goerli}
+      chains={chains}
       theme={lightTheme({
       accentColor: '#0000FF',
       accentColorForeground: 'white',

@@ -138,6 +138,26 @@
     color: #0000FF;
    
   }
+  .submitButton{
+    background-color: #0000FF;
+    color: white;
+    font-size: 25px;
+    align-self: end;
+    font-style: normal;
+    text-align: center;
+    font-weight: 700;
+    padding-top: 10px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    width: 170px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .submitButton:disabled {
+    background-color: dimgrey;
+    color: linen;
+    opacity: 1;
+}
   @media(max-width: 1200px) {
 
   }

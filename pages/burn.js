@@ -5,10 +5,10 @@ import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 import { useState } from 'react'
 import { useEffect } from 'react';
-import { useAccount } from 'wagmi';
+import { useAccount, useBalance } from 'wagmi';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import {
   BERIES_CONTRACT_ABI,
   BERIES_CONTRACT_ADDRESS,
@@ -31,10 +31,14 @@ const db = getFirestore(app);
 const Burn = () => {
   
   const [userBalance, setUserBalance] = useState(["X", "X" , "X", "X"]);
+  const [burnedBalance, setBurnedBalance] = useState([0, 0, 0, 0]);
   const [wannaBurn, setWannaBurn] = useState([0, 0, 0, 0]);
   const { address, isConnected } = useAccount();
-  
-  const getUserBalance = async () => {
+  const [submitButton, setSubmitButton] = useState(true);
+
+
+  const doubleBalance = async () => {
+
     try { 
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
@@ -43,16 +47,39 @@ const Burn = () => {
       BERIES_CONTRACT_ABI,
       signer
       );
-      const balance = []
+      const balance = [];
+      const burned = [];
       for (let i = 0; i < 4; i++) {
         const balanceOf = await contract.balanceOf(address, i);
+        const tBurnedBalance = await contract.burnedToken(address, i);
         balance[i] = (ethers.utils.formatUnits(balanceOf, 0));
+        burned[i] = (ethers.utils.formatUnits(tBurnedBalance, 0));
       }
-      await setUserBalance(balance);
+      console.log(burned);
+      setUserBalance(balance);
+      setBurnedBalance(burned);
+      firbaseData(burned);
     } catch (error) {
       console.log(error);
     }
   }
+    const firbaseData = async (burned) =>  {
+      
+      const docRef = doc(db, "orders", address);
+      const docSnap = await getDoc(docRef);
+      var snapshot = docSnap.data().burned;
+      if (snapshot != undefined) {
+         
+         var snapshot = docSnap.data().burned;
+         console.log(snapshot, 'IL RENTRE');
+         if (snapshot.toString() != burned.toString()) {
+            setSubmitButton(false);
+         } 
+      } else if (burned.toString() != '0,0,0,0') {
+        setSubmitButton(true);
+        console.log("You can submit your order");
+      }
+    }
 
   const burn = async () => {
     try { 
@@ -63,16 +90,18 @@ const Burn = () => {
       BERIES_CONTRACT_ABI,
       signer
       );
-      console.log(wannaBurn);
+      console.log("Your current balance is  : ", userBalance);
+      console.log("You've already burned : ", burnedBalance, " tokens");
+      console.log("You want to burn : ", wannaBurn, " tokens");
       const Burn = await contract.burnMany(wannaBurn);
       await Burn.wait();
       console.log("Burned");
-      getUserBalance();
+      doubleBalance();
     } catch (error) {
       console.log(error);
     }
   }
-
+  
   const handleInput1 = (e) => {
     const valeur = Number(e.target.value);
     setWannaBurn([valeur, wannaBurn[1], wannaBurn[2], wannaBurn[3]]);
@@ -91,13 +120,14 @@ const Burn = () => {
   }
 
   const handleBurn = async () => {
+    if (burnedBalance)
     burn();
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      
+     
       await setDoc(doc(db, "orders", address), {
         address: address,
         name: state.name,
@@ -108,8 +138,10 @@ const Burn = () => {
         country: state.country,
         city: state.city,
         info: state.info,
+        burned: burnedBalance,
       });
       console.log("Document written with ID: ", address);
+      setSubmitButton(true);
       
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -139,7 +171,7 @@ const Burn = () => {
     const [state, dispatch] = React.useReducer(reducer, initialState);
     
     useEffect (() => {
-      getUserBalance();
+      doubleBalance();
     }, [isConnected]);
     
     return (
@@ -317,9 +349,11 @@ const Burn = () => {
                 value: e.target.value
               })}></input>
           </div>
-              </div>
           </div>
-          <button type='submit'>Submit</button>
+          <div className={styles.row}>
+              <button className={styles.submitButton} type='submit' disabled={submitButton}>Submit</button>
+          </div>
+          </div>
       </form>
       </div>   
         ) : (
