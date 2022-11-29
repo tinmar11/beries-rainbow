@@ -152,20 +152,22 @@
 }
 @media (max-width: 1200px) {
 }
-@media (max-width: 991px) {
-  .burn-container1 {
-    padding-left: var(--dl-space-space-threeunits);
-    padding-right: var(--dl-space-space-threeunits);
+@media (max-width: 850px) {
+ .row{
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
   }
-  .burn-container2 {
-    height: auto;
-    padding: var(--dl-space-space-twounits);
-    padding-top: var(--dl-space-space-threeunits);
-    padding-left: var(--dl-space-space-threeunits);
-    padding-right: var(--dl-space-space-threeunits);
-    padding-bottom: var(--dl-space-space-threeunits);
+  .inputContainer{
+    padding-bottom: var(--dl-space-space-twounits);
   }
-}
+  .inputButton{
+    align-self: center;
+  }
+ 
+ }
+
+
 @media (max-width: 767px) {
   .burn-container {
     gap: 0;
