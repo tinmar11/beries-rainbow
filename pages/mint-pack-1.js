@@ -3,8 +3,12 @@ import Head from "next/head";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { mintFunction } from "../functions/mintFunction.js";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount, useBalance } from "wagmi";
 
 const MintPack1 = (props) => {
+  const { address, isConnected } = useAccount();
+
   const handleClick = () => {
     mintFunction(0, 1);
   };
@@ -31,14 +35,16 @@ const MintPack1 = (props) => {
             <span className="mint-pack1-text1 paragraph">
               1 Tee - 1 Hoodie - 1 Cap
             </span>
-            <button
+            {isConnected ? (<button
               id="mint pack 1 button"
               type="button"
               className="mint-pack1-mint-pack-1-button mint-button button"
               onClick={handleClick}
             >
               Mint for 0.1 ETH
-            </button>
+            </button>) : (
+              <ConnectButton />
+            )}
             <a href="#item-of-this-pack" className="mint-pack1-link">
               See clothes here
             </a>
@@ -81,6 +87,9 @@ const MintPack1 = (props) => {
 
       <style jsx>
         {`
+          .ju367vec {
+            box-shadow: red;
+        }
           .mint-pack1-container {
             width: 100%;
             display: flex;

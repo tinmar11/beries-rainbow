@@ -68,7 +68,7 @@ const Burn = () => {
         setSubmitButton(false);
       }
     } else if (burned.toString() != "0,0,0,0") {
-      setSubmitButton(true);
+      setSubmitButton(false);
       console.log("You can submit your order");
     }
   };

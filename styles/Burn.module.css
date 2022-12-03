@@ -150,8 +150,7 @@
   color: linen;
   opacity: 1;
 }
-@media (max-width: 1200px) {
-}
+
 @media (max-width: 850px) {
  .row{
     flex-direction: column;
@@ -161,10 +160,9 @@
   .inputContainer{
     padding-bottom: var(--dl-space-space-twounits);
   }
-  .inputButton{
-    align-self: center;
+  .submitButton{
+     align-self: center;
   }
- 
  }
 
 

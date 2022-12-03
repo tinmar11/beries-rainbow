@@ -15,6 +15,11 @@
   ],
   "rootMainFiles": [],
   "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -25,10 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/burn": [
+    "/mint-pack-1": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/burn.js"
+      "static/chunks/pages/mint-pack-1.js"
+    ],
+    "/mint-pack-2": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/mint-pack-2.js"
     ]
   },
   "ampFirstPages": []
