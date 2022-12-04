@@ -60,16 +60,21 @@ const Burn = () => {
   const firbaseData = async (burned) => {
     const docRef = doc(db, "orders", address);
     const docSnap = await getDoc(docRef);
-    var snapshot = docSnap.data().burned;
-    if (snapshot != undefined) {
+    
+    try {
       var snapshot = docSnap.data().burned;
-      console.log(snapshot, "IL RENTRE");
-      if (snapshot.toString() != burned.toString()) {
-        setSubmitButton(false);
+      if (snapshot != undefined) {
+        var snapshot = docSnap.data().burned;
+        console.log(snapshot, "IL RENTRE");
+        if (snapshot.toString() != burned.toString()) {
+          setSubmitButton(false);
+        }
       }
-    } else if (burned.toString() != "0,0,0,0") {
-      setSubmitButton(false);
-      console.log("You can submit your order");
+    } catch (error) {
+      if (burned.toString() != "0,0,0,0") {
+        setSubmitButton(false);
+        console.log("You can submit your order");
+      }
     }
   };
 
