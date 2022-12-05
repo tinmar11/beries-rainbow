@@ -11,6 +11,7 @@ import { getFirestore } from "firebase/firestore";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { BERIES_CONTRACT_ABI, BERIES_CONTRACT_ADDRESS } from "../constants";
 import { ethers } from "ethers";
+import Image from "next/image";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDbeEo8D_EAnkLqdhz9FVbWxCYqMzUMnNI",
@@ -175,15 +176,16 @@ const Burn = () => {
           <meta property="og:title" content="Burn - BeRies" />
         </Head>
         <Navbar rootClassName="navbar-root-class-name4"></Navbar>
-        <section id="Title" className={styles.burnContainer1}>
+        
+
+        {isConnected ? (
+        <div className={styles.div}>
+          <section id="Title" className={styles.burnContainer1}>
           <h1 className={styles.burnText}>Burn for shipping</h1>
           <span className={styles.paragraph}>
             Burn your NFT to receive the BeRies pack you choose.
           </span>
         </section>
-
-        {isConnected ? (
-          <div className={styles.div}>
             <div className={styles.blueContainer}>
               <div className={styles.blueContainerRight}>
                 <div className={styles.burnInputContainer}>
@@ -388,10 +390,16 @@ const Burn = () => {
             </form>
           </div>
         ) : (
-          <div className={styles.blueContainer}>
-            <h1 className={styles.pleaseConnect}>
-              Please connect your wallet to continue.
+          <div className={styles.pleaseConnect}>
+            <div>
+              <Image src="/assets/disconected.png" width={100} height={100} />
+            </div>
+            <div className={styles.pleaseConnectDiv}>
+            <h1 className={styles.pleaseTitle}>
+              Connect your wallet
             </h1>
+            <p className={styles.pleaseText}>If you want to go to this page</p>
+            </div>
           </div>
         )}
         <Footer rootClassName="footer-root-class-name4"></Footer>

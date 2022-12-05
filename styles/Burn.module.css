@@ -37,6 +37,14 @@
   padding-left: 100px;
   padding-right: 100px;
 }
+.pleaseConnect {
+  width: 100%;
+  height: 714px;
+  background-color: #0000ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .blueContainerRight {
   width: 50%;
   height: 550px;
@@ -94,12 +102,20 @@
   font-size: 16px;
   text-align: right;
 }
-
-.pleaseConnect {
+.pleaseConnectDiv{
+  padding-left: 20px;
+}
+.pleaseTitle {
   font-size: 48px;
   font-style: normal;
   text-align: left;
   font-weight: 900;
+}
+.pleaseText {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 .form {
   flex: 0 0 auto;

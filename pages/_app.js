@@ -38,7 +38,7 @@ export default function MyApp({ Component: Component, pageProps: pageProps }) {
         initialChain={chain.goerli}
         chains={chains}
         theme={lightTheme({
-          accentColor: "#1C7FD9",
+          accentColor: '#0000ff',
           accentColorForeground: "white",
           borderRadius: "medium",
           fontStack: "system",
