@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/mint-pack-1": "pages/mint-pack-1.js",
+  "/burn": "pages/burn.js",
   "/": "pages/index.js"
 }

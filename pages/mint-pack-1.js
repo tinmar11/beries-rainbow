@@ -43,7 +43,14 @@ const MintPack1 = (props) => {
             >
               Mint for 0.1 ETH
             </button>) : (
-              <ConnectButton />
+              <button
+              id="mint pack 1 button"
+              type="button"
+              className="mint-pack1-mint-pack-1-button mint-button button disabled"
+              
+            >
+              Please connect your wallet
+            </button>
             )}
             <a href="#item-of-this-pack" className="mint-pack1-link">
               See clothes here
@@ -87,9 +94,10 @@ const MintPack1 = (props) => {
 
       <style jsx>
         {`
-          .ju367vec {
-            box-shadow: red;
+        .disabled{
+          cursor: not-allowed;
         }
+      
           .mint-pack1-container {
             width: 100%;
             display: flex;

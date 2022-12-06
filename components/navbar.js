@@ -22,8 +22,9 @@ const Navbar = (props) => {
             </Link>
           </div>
           <NavigationLinks rootClassName="rootClassName12"></NavigationLinks>
-          <ConnectButton />
-
+          <div className="connectDiv">
+            <ConnectButton />
+          </div>
           <div data-type="BurgerMenu" className="navbar-burger-menu">
             <svg viewBox="0 0 1024 1024" className="navbar-icon">
               <path d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"></path>
@@ -54,6 +55,7 @@ const Navbar = (props) => {
       </div>
       <style jsx>
         {`
+          
           .navbar-container {
             width: 100%;
             height: 100px;
@@ -62,6 +64,7 @@ const Navbar = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-color: #ffffff;
+            
           }
           .navbar-header {
             width: 100%;
@@ -143,6 +146,8 @@ const Navbar = (props) => {
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 20px;
+            height: 20px;
           }
           .navbar-icon2 {
             width: var(--dl-size-size-xsmall);
@@ -162,6 +167,8 @@ const Navbar = (props) => {
             .navbar-header {
               padding-left: var(--dl-space-space-twounits);
               padding-right: var(--dl-space-space-twounits);
+              justify-content: normal;
+              
             }
 
             .navbar-mobile-menu {
@@ -170,6 +177,8 @@ const Navbar = (props) => {
             .navbar-btn-group {
             }
             .navbar-burger-menu {
+              width:70px;
+              height:70px;
               display: flex;
               align-items: center;
               justify-content: center;

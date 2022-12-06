@@ -419,6 +419,7 @@ const MeetOurTeam = (props) => {
             font-size: 16px;
           }
           @media (max-width: 1200px) {
+            
             .meet-our-team-team-1row-container {
               justify-content: space-between;
             }
@@ -446,10 +447,7 @@ const MeetOurTeam = (props) => {
             }
           }
           @media (max-width: 991px) {
-            .meet-our-team-meet-our-team {
-              padding-left: var(--dl-space-space-threeunits);
-              padding-right: 0px;
-            }
+           
             .meet-our-team-text01 {
               width: 100%;
               height: 100%;

@@ -6,8 +6,8 @@ const Community = () => {
     <>
       <section id="community" className={styles.communitySection}>
         <div className={styles.imageWrapperOuter}>
-          <div class={styles.imageWrapperInner}>
-            <div className={styles.ImageRowWrapper1}>
+          <div class={styles.imageWrapperInner} loading="lazy">
+            <div className={styles.ImageRowWrapper1} >
               <div className={styles.image}></div>
               <div className={styles.image2}></div>
               <div className={styles.image3}></div>

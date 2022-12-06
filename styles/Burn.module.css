@@ -166,7 +166,25 @@
   color: linen;
   opacity: 1;
 }
-
+@media (max-width: 1030px) {
+  .blueContainer{
+    flex-direction: column;
+    padding: 20px;
+  }
+  .burnContainer1{
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+  .blueContainerRight {
+    width: 100%;
+  }
+  .blueContainerLeft {
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+  }
+}
 @media (max-width: 850px) {
  .row{
     flex-direction: column;
@@ -179,6 +197,7 @@
   .submitButton{
      align-self: center;
   }
+  
  }
 
 
@@ -207,6 +226,12 @@
     width: 300px;
     align-self: center;
     align-items: center;
+  }
+  .burnText{
+    font-size: 40px;
+  }
+  .paragraph{
+    font-size: 14px;
   }
   .burn-image {
     align-self: center;

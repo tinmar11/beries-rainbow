@@ -125,7 +125,7 @@ const NavigationLinks = (props) => {
             font-size: 16px;
             font-style: normal;
             text-align: center;
-            font-weight: 500;
+            font-weight: 600;
             margin-right: 4px;
             vertical-align: middle;
           }
@@ -182,7 +182,7 @@ const NavigationLinks = (props) => {
             display: flex;
             font-size: 14px;
             font-style: normal;
-            font-weight: 500;
+            font-weight: 600;
           }
           .navigation-links-dropdown1 {
             cursor: pointer;
@@ -215,7 +215,7 @@ const NavigationLinks = (props) => {
             display: flex;
             font-size: 14px;
             font-style: normal;
-            font-weight: 500;
+            font-weight: 600;
           }
           .navigation-links-dropdown2 {
             cursor: pointer;
@@ -248,7 +248,7 @@ const NavigationLinks = (props) => {
             display: flex;
             font-size: 14px;
             font-style: normal;
-            font-weight: 500;
+            font-weight: 600;
           }
           .navigation-links-dropdown3 {
             cursor: pointer;
@@ -281,15 +281,16 @@ const NavigationLinks = (props) => {
             display: flex;
             font-size: 14px;
             font-style: normal;
-            font-weight: 500;
+            font-weight: 600;
           }
           .navigation-links-link1 {
             text-decoration: none;
+            font-weight: 600;
           }
           .navigation-links-link2 {
             color: #0000ff;
             font-style: normal;
-            font-weight: 500;
+            font-weight: 600;
             margin-left: var(--dl-space-space-twounits);
             text-decoration: none;
           }

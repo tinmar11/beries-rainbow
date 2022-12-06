@@ -10,6 +10,7 @@ import {
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
+import Head from 'next/head'
 
 const { chains, provider } = configureChains(
   [chain.goerli],
@@ -32,6 +33,13 @@ const wagmiClient = createClient({
 
 export default function MyApp({ Component: Component, pageProps: pageProps }) {
   return (
+    <>
+        <Head>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          ></meta>
+        </Head>
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider
         modalSize="compact"
@@ -50,5 +58,5 @@ export default function MyApp({ Component: Component, pageProps: pageProps }) {
         <Component {...pageProps} />
       </RainbowKitProvider>
     </WagmiConfig>
-  );
+    </>);
 }
